@@ -2354,3 +2354,26 @@ html.dark-theme .back-link:hover {
 html.dark-theme .product-detail-image-wrapper {
   background: #0f172a;
 }
+
+/* =========================
+   FOOTER — DARK MODE
+========================= */
+
+html.dark-theme footer {
+  background: #020617;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+html.dark-theme .footer-bottom {
+  color: #cbd5e1;
+}
+
+html.dark-theme .footer-bottom a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+html.dark-theme .footer-bottom a:hover {
+  color: #60a5fa;
+}
