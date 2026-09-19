@@ -715,3 +715,68 @@ renderProducts(
 
 });
 
+
+
+/* =========================
+   HABIYE THEME
+========================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const themeToggle = document.getElementById("themeToggle");
+
+  if (!themeToggle) {
+    console.log("Theme toggle button not found.");
+    return;
+  }
+
+  /* Load saved theme */
+  const savedTheme = localStorage.getItem("habiye-theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark-theme");
+  } else {
+    document.documentElement.classList.remove("dark-theme");
+  }
+
+  /* Update button icon */
+  function updateThemeButton() {
+
+    const isDark =
+      document.documentElement.classList.contains("dark-theme");
+
+    themeToggle.textContent = isDark ? "☀️" : "🌙";
+
+    themeToggle.setAttribute(
+      "aria-label",
+      isDark
+        ? "Switch to light mode"
+        : "Switch to dark mode"
+    );
+
+    themeToggle.setAttribute(
+      "title",
+      isDark
+        ? "Switch to light mode"
+        : "Switch to dark mode"
+    );
+  }
+
+  updateThemeButton();
+
+  /* Toggle theme */
+  themeToggle.addEventListener("click", function () {
+
+    const isDark =
+      document.documentElement.classList.toggle("dark-theme");
+
+    localStorage.setItem(
+      "habiye-theme",
+      isDark ? "dark" : "light"
+    );
+
+    updateThemeButton();
+
+  });
+
+});

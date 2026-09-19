@@ -131,6 +131,7 @@ a {
 }
 
 
+
 /* =========================
    NAVBAR
 ========================= */
@@ -1943,4 +1944,413 @@ a {
 
   }
 
+}
+
+/* ==================================================
+   HABIYE DARK MODE
+================================================== */
+
+html.dark-theme {
+  --light: #0f172a;
+  --dark: #f8fafc;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --border: #334155;
+  --white: #1e293b;
+  --background: #0f172a;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+html.dark-theme body {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+html.dark-theme .navbar {
+  background: #111827;
+  border-color: #334155;
+}
+
+html.dark-theme .nav-menu a {
+  color: #f8fafc;
+}
+
+html.dark-theme .nav-menu a:hover {
+  color: #60a5fa;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+html.dark-theme .top-bar {
+  background: #020617;
+  color: #cbd5e1;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+html.dark-theme .section,
+html.dark-theme .business-section,
+html.dark-theme .contact-section {
+  background: #0f172a;
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+html.dark-theme h1,
+html.dark-theme h2,
+html.dark-theme h3,
+html.dark-theme h4,
+html.dark-theme h5,
+html.dark-theme h6 {
+  color: #f8fafc;
+}
+
+
+/* =========================
+   PARAGRAPHS
+========================= */
+
+html.dark-theme p {
+  color: #94a3b8;
+}
+
+
+/* =========================
+   CATEGORY CARDS
+========================= */
+
+html.dark-theme .category-card {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+html.dark-theme .category-card h3 {
+  color: #f8fafc;
+}
+
+html.dark-theme .category-card p {
+  color: #94a3b8;
+}
+
+html.dark-theme .category-card:hover {
+  background: #273449;
+}
+
+
+/* =========================
+   PRODUCT CARDS
+========================= */
+
+html.dark-theme .product-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+html.dark-theme .product-card h3 {
+  color: #f8fafc;
+}
+
+html.dark-theme .product-description {
+  color: #94a3b8;
+}
+
+html.dark-theme .product-category {
+  color: #94a3b8;
+}
+
+html.dark-theme .product-price {
+  color: #f8fafc;
+}
+
+
+/* =========================
+   PRODUCT TOOLS
+========================= */
+
+html.dark-theme .product-tools input,
+html.dark-theme .product-tools select {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+html.dark-theme .product-tools input::placeholder {
+  color: #64748b;
+}
+
+
+/* =========================
+   BUSINESS CARD
+========================= */
+
+html.dark-theme .business-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+html.dark-theme .business-card h3 {
+  color: #f8fafc;
+}
+
+html.dark-theme .business-card p {
+  color: #94a3b8;
+}
+
+
+/* =========================
+   TRUST CARDS
+========================= */
+
+html.dark-theme .trust-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+html.dark-theme .trust-card h3 {
+  color: #f8fafc;
+}
+
+html.dark-theme .trust-card p {
+  color: #94a3b8;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+html.dark-theme .contact-item strong {
+  color: #f8fafc;
+}
+
+html.dark-theme .contact-item span,
+html.dark-theme .contact-email {
+  color: #94a3b8;
+}
+
+html.dark-theme .contact-email:hover {
+  color: #60a5fa;
+}
+
+
+/* =========================
+   MODALS
+========================= */
+
+html.dark-theme .modal {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+html.dark-theme .modal h2,
+html.dark-theme .modal h3 {
+  color: #f8fafc;
+}
+
+
+/* =========================
+   CART
+========================= */
+
+html.dark-theme .cart-items {
+  color: #f8fafc;
+}
+
+html.dark-theme .cart-summary {
+  border-color: #334155;
+}
+
+html.dark-theme .cart-total {
+  color: #f8fafc;
+}
+
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+
+  background: transparent;
+  color: var(--dark);
+
+  font-size: 1.05rem;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.08);
+}
+
+html.dark-theme .theme-toggle {
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+html.dark-theme .theme-toggle:hover {
+  background: #334155;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+html.dark-theme input,
+html.dark-theme textarea,
+html.dark-theme select {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+html.dark-theme input::placeholder,
+html.dark-theme textarea::placeholder {
+  color: #64748b;
+}
+
+
+/* =========================
+   QUANTITY CONTROLS
+========================= */
+
+html.dark-theme .quantity-control {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+html.dark-theme .quantity-control button {
+  background: #334155;
+  color: #f8fafc;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+html.dark-theme footer {
+  background: #020617;
+  color: #cbd5e1;
+}
+
+
+/* ==================================================
+   PRODUCT DETAIL PAGE — DARK MODE
+================================================== */
+
+html.dark-theme .product-page {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+html.dark-theme .product-details {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+html.dark-theme .product-detail-info {
+  color: #f8fafc;
+}
+
+html.dark-theme .product-detail-info h1 {
+  color: #f8fafc;
+}
+
+html.dark-theme .product-detail-category {
+  color: #94a3b8;
+}
+
+html.dark-theme .product-detail-description {
+  color: #cbd5e1;
+}
+
+html.dark-theme .product-detail-price {
+  color: #f8fafc;
+}
+
+html.dark-theme .product-full-details {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+html.dark-theme .product-full-details h2,
+html.dark-theme .product-full-details h3 {
+  color: #f8fafc;
+}
+
+html.dark-theme .product-full-details p {
+  color: #cbd5e1;
+}
+
+
+/* Quantity control */
+
+html.dark-theme .quantity-control {
+  background: #0f172a;
+  border-color: #475569;
+}
+
+html.dark-theme .quantity-control button {
+  background: #334155;
+  color: #f8fafc;
+}
+
+html.dark-theme .quantity-control span {
+  color: #f8fafc;
+}
+
+
+/* Back to Store */
+
+html.dark-theme .back-link {
+  color: #cbd5e1;
+}
+
+html.dark-theme .back-link:hover {
+  color: #60a5fa;
+}
+
+
+/* Product image background */
+
+html.dark-theme .product-detail-image-wrapper {
+  background: #0f172a;
 }

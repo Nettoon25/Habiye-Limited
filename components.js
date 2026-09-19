@@ -33,28 +33,41 @@ document.addEventListener("DOMContentLoaded", () => {
             <a href="index.html#contact">Contact</a>
           </nav>
 
-          <div class="nav-actions">
+  <div class="nav-actions">
 
-            <button
-              class="cart-button"
-              id="cartButton"
-              type="button"
-              aria-label="Open shopping cart"
-            >
-              🛒
-              <span id="cartCount">0</span>
-            </button>
+  <!-- Theme Toggle -->
+  <button
+    class="theme-toggle"
+    id="themeToggle"
+    type="button"
+    aria-label="Switch to dark mode"
+    title="Switch to dark mode"
+  >
+    🌙
+  </button>
 
-            <button
-              class="menu-button"
-              id="menuButton"
-              type="button"
-              aria-label="Open navigation menu"
-            >
-              ☰
-            </button>
+  <!-- Cart -->
+  <button
+    class="cart-button"
+    id="cartButton"
+    type="button"
+    aria-label="Open shopping cart"
+  >
+    🛒
+    <span id="cartCount">0</span>
+  </button>
 
-          </div>
+  <!-- Mobile Menu -->
+  <button
+    class="menu-button"
+    id="menuButton"
+    type="button"
+    aria-label="Open navigation menu"
+  >
+    ☰
+  </button>
+
+</div>
 
         </div>
       </header>
