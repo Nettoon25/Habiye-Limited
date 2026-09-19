@@ -780,9 +780,7 @@ document.addEventListener("DOMContentLoaded", () => {
           Habiye's real WhatsApp number.
         */
 
-        const whatsappNumber =
-          "254700000000";
-
+       const whatsappNumber = "254794600610";
 
         const whatsappURL =
           `https://wa.me/${whatsappNumber}?text=${message}`;
