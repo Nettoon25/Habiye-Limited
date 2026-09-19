@@ -191,13 +191,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
           <div>
 
-            <a href="#">
-              Privacy Policy
-            </a>
+   <a href="policies.html#privacy-policy">
+  Privacy Policy
+</a>
 
-            <a href="#">
-              Terms & Conditions
-            </a>
+<a href="policies.html#terms-conditions">
+  Terms & Conditions
+</a>
 
           </div>
 
