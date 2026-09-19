@@ -60,21 +60,20 @@ window.products = [
       "A modern smart television designed for home entertainment with a large display and smart connectivity."
   },
 
-  {
-    id: 5,
-    name: "Fast Charge Power Bank",
-    category: "Accessories",
-    price: 2999,
-    rating: 4.5,
-    tag: "Popular",
-    description:
-      "Portable power bank for charging mobile devices while travelling.",
-    image:
-      "https://images.unsplash.com/photo-1609592424853-7d7f6f5f9b6f?auto=format&fit=crop&w=800&q=80",
-    details:
-      "Compact portable power solution suitable for travel, work and situations where access to electricity is limited."
-  },
-
+{
+  id: 5,
+  name: "Fast Charge Power Bank",
+  category: "Accessories",
+  price: 2999,
+  rating: 4.5,
+  tag: "Popular",
+  description:
+    "Portable power bank for charging mobile devices while travelling.",
+  image:
+    "https://images.unsplash.com/photo-1625842268584-8f3296236761?auto=format&fit=crop&w=800&q=80",
+  details:
+    "Compact portable power solution suitable for travel, work and situations where access to electricity is limited."
+},
   {
     id: 6,
     name: "Gaming Controller",
@@ -299,37 +298,35 @@ window.products = [
     details:
       "A compact smart camera designed for convenient monitoring and connected-home applications."
   },
+{
+  id: 21,
+  name: "Electric Kettle",
+  category: "Home Appliances",
+  price: 3499,
+  rating: 4.5,
+  tag: "Popular",
+  description:
+    "Fast and convenient electric kettle for everyday hot-water preparation.",
+  image:
+    "https://images.unsplash.com/photo-1610873521816-26804a56b8a0?auto=format&fit=crop&w=800&q=80",
+  details:
+    "A practical kitchen appliance designed for convenient everyday hot-water preparation."
+},
 
-  {
-    id: 21,
-    name: "Electric Kettle",
-    category: "Home Appliances",
-    price: 3499,
-    rating: 4.5,
-    tag: "Popular",
-    description:
-      "Fast and convenient electric kettle for everyday hot-water preparation.",
-    image:
-      "https://images.unsplash.com/photo-1594213114663-d94db9b1714e?auto=format&fit=crop&w=800&q=80",
-    details:
-      "A practical kitchen appliance designed for convenient everyday hot-water preparation."
-  },
-
-  {
-    id: 22,
-    name: "Air Fryer",
-    category: "Home Appliances",
-    price: 8999,
-    rating: 4.6,
-    tag: "Featured",
-    description:
-      "Convenient countertop appliance for preparing a variety of everyday meals.",
-    image:
-      "https://images.unsplash.com/photo-1644967086684-1a6f5a9c1d75?auto=format&fit=crop&w=800&q=80",
-    details:
-      "A practical kitchen appliance designed for convenient everyday cooking."
-  },
-
+{
+  id: 22,
+  name: "Air Fryer",
+  category: "Home Appliances",
+  price: 8999,
+  rating: 4.6,
+  tag: "Featured",
+  description:
+    "Convenient countertop appliance for preparing a variety of everyday meals.",
+  image:
+    "https://images.unsplash.com/photo-1695089028114-ce28248f0ab9?auto=format&fit=crop&w=800&q=80",
+  details:
+    "A practical kitchen appliance designed for convenient everyday cooking."
+},
   {
     id: 23,
     name: "Robot Vacuum Cleaner",
