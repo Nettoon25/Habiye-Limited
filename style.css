@@ -335,22 +335,15 @@ a {
 
 
 .secondary-button {
-
-  color: white;
-
-  border-color: rgba(255,255,255,0.4);
-
+  color: #000;
+  border-color: #000;
+  background: #fff;
 }
-
 
 .secondary-button:hover {
-
-  background: white;
-
-  color: var(--dark);
-
+  background: #000;
+  color: #fff;
 }
-
 
 .danger-button {
 

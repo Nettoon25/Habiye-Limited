@@ -5,9 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
      PRODUCTS
   ========================== */
 
-  const products =
-    window.products || [];
+const products =
+  window.products || [];
 
+const homepageProducts =
+  products.filter(
+    product =>
+      product.showOnHomepage === true
+  );
 
   /* =========================
      DOM ELEMENTS
@@ -704,7 +709,9 @@ document.addEventListener("DOMContentLoaded", () => {
      INITIAL RENDER
   ========================== */
 
-  renderProducts();
+renderProducts(
+  homepageProducts
+);
 
 });
 

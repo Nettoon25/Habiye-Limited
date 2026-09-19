@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,6 +20,7 @@
     content="View detailed product information and recommendations from Habiye Limited."
   >
 
+  <!-- MAIN WEBSITE STYLES -->
   <link
     rel="stylesheet"
     href="style.css"
@@ -32,220 +34,278 @@
     ========================== */
 
     .product-page {
+
       max-width: 1200px;
+
       margin: 0 auto;
+
       padding: 60px 20px;
+
     }
 
 
     .back-link {
+
       display: inline-block;
+
       margin-bottom: 30px;
+
       text-decoration: none;
+
       font-weight: 600;
+
     }
 
 
     .product-details {
+
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: 50px;
+
       align-items: start;
+
     }
 
 
     .product-main-image {
+
       width: 100%;
+
       max-height: 550px;
+
       object-fit: cover;
+
       border-radius: 16px;
+
       display: block;
+
     }
 
 
-    .product-category {
+    .product-details .product-category {
+
       display: inline-block;
+
       margin-right: 10px;
-      font-size: 14px;
-      font-weight: 600;
+
     }
 
 
-    .product-tag {
+    .product-details .product-tag {
+
+      position: static;
+
       display: inline-block;
-      font-size: 14px;
-      font-weight: 600;
+
+      margin-left: 5px;
+
     }
 
 
     .product-details h1 {
+
       margin: 15px 0;
+
       font-size: 42px;
+
       line-height: 1.15;
+
     }
 
 
-    .rating {
+    .product-details .rating {
+
       margin-bottom: 20px;
+
       font-size: 18px;
+
     }
 
 
-    .description {
+    .product-details .description {
+
       font-size: 17px;
+
       line-height: 1.7;
+
       margin-bottom: 25px;
+
     }
 
 
     .product-full-details {
+
       margin-bottom: 25px;
+
       padding: 20px;
+
       border-radius: 12px;
+
       background: rgba(0, 0, 0, 0.04);
+
     }
 
 
     .product-full-details strong {
+
       display: block;
+
       margin-bottom: 10px;
+
     }
 
 
     .product-full-details p {
+
       margin: 0;
+
       line-height: 1.7;
+
     }
 
 
-    .price {
+    .product-details .main-product-price {
+
       display: block;
+
       font-size: 30px;
+
       margin-bottom: 25px;
+
+      font-weight: 900;
+
     }
 
+
+    /* =========================
+       PURCHASE CONTROLS
+    ========================== */
 
     .purchase-controls {
+
       display: flex;
+
       align-items: center;
+
       gap: 15px;
+
       margin-bottom: 35px;
+
     }
 
 
     .quantity-control {
+
       display: flex;
+
       align-items: center;
+
       gap: 15px;
+
       border: 1px solid #ddd;
+
       border-radius: 8px;
+
       padding: 5px 10px;
+
+      background: white;
+
     }
 
 
     .quantity-control button {
+
       border: none;
+
       background: transparent;
+
       font-size: 22px;
+
       cursor: pointer;
+
       padding: 5px 10px;
+
     }
 
 
     .quantity-control span {
+
       min-width: 25px;
+
       text-align: center;
+
       font-weight: 600;
+
     }
 
 
-    .button {
-      cursor: pointer;
-    }
-
+    /* =========================
+       CUSTOMIZATION
+    ========================== */
 
     .customization-section {
+
       margin-top: 30px;
+
     }
 
 
     .customization-section h3 {
+
       margin-bottom: 15px;
+
     }
 
 
     .customization-placeholder {
+
       padding: 20px;
+
       border: 1px dashed #ccc;
+
       border-radius: 12px;
+
       line-height: 1.7;
+
     }
 
 
     /* =========================
        RECOMMENDED PRODUCTS
+       
+       These use the SAME
+       product-card CSS from
+       style.css.
     ========================== */
 
     .recommended-section {
+
       margin-top: 80px;
+
     }
 
 
-    .section-heading {
-      margin-bottom: 30px;
+    .recommended-section .section-heading {
+
+      margin-bottom: 35px;
+
     }
 
 
     .recommended-grid {
+
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-    }
 
+      grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
-    .recommended-card {
-      border-radius: 14px;
-      overflow: hidden;
-      background: #fff;
-      border: 1px solid #eee;
-    }
+      gap: 22px;
 
+      align-items: stretch;
 
-    .recommended-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
-
-
-    .recommended-info {
-      padding: 18px;
-    }
-
-
-    .recommended-category {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 8px;
-    }
-
-
-    .recommended-info h3 {
-      margin: 0 0 12px;
-    }
-
-
-    .recommended-price {
-      display: block;
-      margin-bottom: 15px;
-    }
-
-
-    .recommended-button {
-      display: inline-block;
-      text-decoration: none;
-      font-weight: 600;
     }
 
 
@@ -253,15 +313,32 @@
        RESPONSIVE
     ========================== */
 
+    @media (max-width: 1000px) {
+
+      .recommended-grid {
+
+        grid-template-columns:
+          repeat(3, minmax(0, 1fr));
+
+      }
+
+    }
+
+
     @media (max-width: 900px) {
 
       .product-details {
+
         grid-template-columns: 1fr;
+
       }
 
 
       .recommended-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
       }
 
     }
@@ -270,28 +347,42 @@
     @media (max-width: 600px) {
 
       .product-page {
+
         padding: 40px 15px;
+
       }
 
 
       .product-details h1 {
+
         font-size: 32px;
+
       }
 
 
       .purchase-controls {
+
         flex-direction: column;
+
         align-items: stretch;
+
       }
 
 
       .quantity-control {
+
         justify-content: center;
+
       }
 
 
       .recommended-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
       }
 
     }
@@ -318,11 +409,17 @@
   <main class="product-page">
 
 
+    <!-- =========================
+         BACK TO PRODUCTS
+    ========================== -->
+
     <a
       href="index.html"
       class="back-link"
     >
+
       ← Back to Products
+
     </a>
 
 
@@ -335,7 +432,8 @@
       id="productDetails"
     >
 
-      <!-- JavaScript inserts the selected product here -->
+      <!-- JavaScript inserts
+           selected product here -->
 
     </section>
 
@@ -348,6 +446,7 @@
       class="recommended-section"
       id="recommendedSection"
     >
+
 
       <div class="section-heading">
 
@@ -367,11 +466,14 @@
         id="recommendedGrid"
       >
 
-        <!-- JavaScript inserts recommended products here -->
+        <!-- JavaScript inserts
+             recommended products here -->
 
       </div>
 
+
     </section>
+
 
   </main>
 
@@ -384,7 +486,7 @@
 
 
   <!-- =========================
-       JAVASCRIPT
+       JAVASCRIPT FILES
   ========================== -->
 
   <script src="products.js"></script>
@@ -394,6 +496,10 @@
   <script src="cart.js"></script>
 
 
+  <!-- =========================
+       PRODUCT PAGE SCRIPT
+  ========================== -->
+
   <script>
 
     document.addEventListener(
@@ -402,7 +508,7 @@
 
 
         /* =========================
-           PRODUCT DETAILS
+           GET PAGE ELEMENTS
         ========================== */
 
         const productDetails =
@@ -417,6 +523,10 @@
           );
 
 
+        /* =========================
+           GET PRODUCT ID
+        ========================== */
+
         const urlParams =
           new URLSearchParams(
             window.location.search
@@ -429,10 +539,15 @@
           );
 
 
+        /* =========================
+           FIND SELECTED PRODUCT
+        ========================== */
+
         const selectedProduct =
-          window.products.find(
+          (window.products || []).find(
             product =>
-              product.id === productId
+              Number(product.id) ===
+              productId
           );
 
 
@@ -442,6 +557,7 @@
 
         if (!selectedProduct) {
 
+
           productDetails.innerHTML = `
 
             <div>
@@ -450,16 +566,20 @@
                 Product Not Found
               </h1>
 
+
               <p>
                 The product you are looking for
                 could not be found.
               </p>
 
+
               <a
                 href="index.html"
                 class="button primary-button"
               >
+
                 Return to Products
+
               </a>
 
             </div>
@@ -468,6 +588,7 @@
 
 
           recommendedGrid.innerHTML = "";
+
 
           return;
 
@@ -483,10 +604,12 @@
 
 
         /* =========================
-           PRODUCT CONTENT
+           PRODUCT DETAILS CONTENT
         ========================== */
 
         productDetails.innerHTML = `
+
+          <!-- PRODUCT IMAGE -->
 
           <div>
 
@@ -499,76 +622,125 @@
           </div>
 
 
+          <!-- PRODUCT INFORMATION -->
+
           <div>
 
+
+            <!-- CATEGORY -->
+
             <span class="product-category">
+
               ${selectedProduct.category}
+
             </span>
 
 
-            <span class="product-tag">
-              ${selectedProduct.tag}
-            </span>
+            <!-- TAG -->
 
+            ${
+              selectedProduct.tag
+                ? `
+
+                  <span class="product-tag">
+
+                    ${selectedProduct.tag}
+
+                  </span>
+
+                `
+                : ""
+            }
+
+
+            <!-- NAME -->
 
             <h1>
+
               ${selectedProduct.name}
+
             </h1>
 
+
+            <!-- RATING -->
 
             <div class="rating">
 
               ★★★★★
 
               <span style="color:#667085;">
+
                 ${selectedProduct.rating}
+
               </span>
 
             </div>
 
 
+            <!-- DESCRIPTION -->
+
             <p class="description">
+
               ${selectedProduct.description}
+
             </p>
 
+
+            <!-- FULL DETAILS -->
 
             <div class="product-full-details">
 
               <strong>
+
                 Product Details
+
               </strong>
 
+
               <p>
+
                 ${selectedProduct.details}
+
               </p>
 
             </div>
 
 
-            <strong class="price">
-              KSh ${selectedProduct.price.toLocaleString()}
+            <!-- PRICE -->
+
+            <strong class="main-product-price">
+
+              KSh ${Number(
+                selectedProduct.price
+              ).toLocaleString()}
+
             </strong>
 
+
+            <!-- PURCHASE CONTROLS -->
 
             <div class="purchase-controls">
 
 
-              <!-- =========================
-                   QUANTITY
-              ========================== -->
+              <!-- QUANTITY -->
 
               <div class="quantity-control">
+
 
                 <button
                   type="button"
                   id="decreaseQuantity"
                 >
+
                   −
+
                 </button>
 
 
                 <span id="quantity">
+
                   1
+
                 </span>
 
 
@@ -576,36 +748,40 @@
                   type="button"
                   id="increaseQuantity"
                 >
+
                   +
+
                 </button>
+
 
               </div>
 
 
-              <!-- =========================
-                   ADD TO CART
-              ========================== -->
+              <!-- ADD TO CART -->
 
               <button
                 type="button"
                 class="button primary-button"
                 id="addToCartButton"
               >
+
                 Add to Cart
+
               </button>
 
 
             </div>
 
 
-            <!-- =========================
-                 CUSTOMIZATION
-            ========================== -->
+            <!-- CUSTOMIZATION -->
 
             <div class="customization-section">
 
+
               <h3>
+
                 Customize This Product
+
               </h3>
 
 
@@ -620,6 +796,7 @@
                 configuration or other options.
 
               </div>
+
 
             </div>
 
@@ -654,38 +831,56 @@
           );
 
 
-        increaseQuantity.addEventListener(
-          "click",
-          () => {
+        /* =========================
+           INCREASE QUANTITY
+        ========================== */
 
-            quantity++;
+        if (increaseQuantity) {
 
-            quantityDisplay.textContent =
-              quantity;
+          increaseQuantity.addEventListener(
+            "click",
+            () => {
 
-          }
-        );
+              quantity++;
 
-
-        decreaseQuantity.addEventListener(
-          "click",
-          () => {
-
-            if (quantity > 1) {
-
-              quantity--;
 
               quantityDisplay.textContent =
                 quantity;
 
             }
+          );
 
-          }
-        );
+        }
 
 
         /* =========================
-           ADD TO SHARED CART
+           DECREASE QUANTITY
+        ========================== */
+
+        if (decreaseQuantity) {
+
+          decreaseQuantity.addEventListener(
+            "click",
+            () => {
+
+              if (quantity > 1) {
+
+                quantity--;
+
+
+                quantityDisplay.textContent =
+                  quantity;
+
+              }
+
+            }
+          );
+
+        }
+
+
+        /* =========================
+           ADD MAIN PRODUCT TO CART
         ========================== */
 
         const addToCartButton =
@@ -694,38 +889,49 @@
           );
 
 
-        addToCartButton.addEventListener(
-          "click",
-          () => {
+        if (addToCartButton) {
 
-            if (
-              window.HabiyeCart &&
-              typeof HabiyeCart.addToCart ===
-                "function"
-            ) {
+          addToCartButton.addEventListener(
+            "click",
+            () => {
 
-              HabiyeCart.addToCart(
-                selectedProduct.id,
-                quantity
-              );
+
+              if (
+                window.HabiyeCart &&
+                typeof window.HabiyeCart.addToCart ===
+                  "function"
+              ) {
+
+
+                window.HabiyeCart.addToCart(
+                  selectedProduct.id,
+                  quantity
+                );
+
+
+              }
 
             }
+          );
 
-          }
-        );
+        }
 
 
         /* =========================
-           RECOMMENDED PRODUCTS
+           FIND OTHER PRODUCTS
         ========================== */
 
         const otherProducts =
           window.products.filter(
             product =>
-              product.id !==
-              selectedProduct.id
+              Number(product.id) !==
+              Number(selectedProduct.id)
           );
 
+
+        /* =========================
+           SAME CATEGORY
+        ========================== */
 
         const sameCategory =
           otherProducts.filter(
@@ -735,6 +941,10 @@
           );
 
 
+        /* =========================
+           DIFFERENT CATEGORY
+        ========================== */
+
         const differentCategory =
           otherProducts.filter(
             product =>
@@ -742,6 +952,13 @@
               selectedProduct.category
           );
 
+
+        /* =========================
+           RECOMMENDATION LIST
+           
+           For now we display
+           4 products.
+        ========================== */
 
         const recommendedProducts = [
 
@@ -752,57 +969,241 @@
         ].slice(0, 4);
 
 
+        /* =========================
+           RENDER RECOMMENDED PRODUCTS
+           
+           IMPORTANT:
+           These use EXACTLY the same
+           product-card classes used
+           by index.html.
+        ========================== */
+
         recommendedGrid.innerHTML =
           recommendedProducts
             .map(
               product => `
 
-                <article
-                  class="recommended-card"
-                >
 
-                  <img
-                    src="${product.image}"
-                    alt="${product.name}"
-                    loading="lazy"
-                  >
+                <article class="product-card">
 
 
-                  <div class="recommended-info">
+                  <!-- PRODUCT IMAGE -->
 
-                    <span
-                      class="recommended-category"
+                  <div class="product-image-wrapper">
+
+
+                    <img
+                      class="product-image"
+                      src="${product.image}"
+                      alt="${product.name}"
+                      loading="lazy"
                     >
-                      ${product.category}
-                    </span>
 
 
-                    <h3>
-                      ${product.name}
-                    </h3>
+                    ${
+                      product.tag
+                        ? `
 
+                          <span class="product-tag">
 
-                    <strong
-                      class="recommended-price"
-                    >
-                      KSh ${product.price.toLocaleString()}
-                    </strong>
+                            ${product.tag}
 
+                          </span>
 
-                    <a
-                      href="index2.html?id=${product.id}"
-                      class="recommended-button"
-                    >
-                      View Product
-                    </a>
+                        `
+                        : ""
+                    }
+
 
                   </div>
 
+
+                  <!-- PRODUCT CONTENT -->
+
+                  <div class="product-card-content">
+
+
+                    <!-- CATEGORY -->
+
+                    <span class="product-category">
+
+                      ${product.category}
+
+                    </span>
+
+
+                    <!-- PRODUCT NAME -->
+
+                    <h3>
+
+                      ${product.name}
+
+                    </h3>
+
+
+                    <!-- DESCRIPTION -->
+
+                    <p class="product-description">
+
+                      ${product.description}
+
+                    </p>
+
+
+                    <!-- RATING -->
+
+                    <div class="product-rating">
+
+                      ★★★★★
+
+                      <span style="color:#667085;">
+
+                        ${product.rating}
+
+                      </span>
+
+                    </div>
+
+
+                    <!-- PRICE + BUTTONS -->
+
+                    <div class="product-card-bottom">
+
+
+                      <strong class="product-price">
+
+                        KSh ${Number(
+                          product.price
+                        ).toLocaleString()}
+
+                      </strong>
+
+
+                      <!-- ACTION BUTTONS -->
+
+                      <div class="product-actions">
+
+
+                        <!-- VIEW -->
+
+                        <button
+                          type="button"
+                          class="button secondary-button"
+                          data-view-product="${product.id}"
+                        >
+
+                          View
+
+                        </button>
+
+
+                        <!-- ADD TO CART -->
+
+                        <button
+                          type="button"
+                          class="button primary-button"
+                          data-recommendation-cart="${product.id}"
+                        >
+
+                          Add to Cart
+
+                        </button>
+
+
+                      </div>
+
+
+                    </div>
+
+
+                  </div>
+
+
                 </article>
+
 
               `
             )
             .join("");
+
+
+        /* =========================
+           RECOMMENDED PRODUCT ACTIONS
+        ========================== */
+
+        recommendedGrid.addEventListener(
+          "click",
+          event => {
+
+
+            /* =========================
+               VIEW PRODUCT
+            ========================== */
+
+            const viewButton =
+              event.target.closest(
+                "[data-view-product]"
+              );
+
+
+            if (viewButton) {
+
+
+              const recommendationId =
+                viewButton.dataset.viewProduct;
+
+
+              window.location.href =
+                `index2.html?id=${recommendationId}`;
+
+
+              return;
+
+            }
+
+
+            /* =========================
+               ADD RECOMMENDED PRODUCT
+               TO CART
+            ========================== */
+
+            const cartButton =
+              event.target.closest(
+                "[data-recommendation-cart]"
+              );
+
+
+            if (!cartButton) {
+
+              return;
+
+            }
+
+
+            const recommendationId =
+              Number(
+                cartButton.dataset
+                  .recommendationCart
+              );
+
+
+            if (
+              window.HabiyeCart &&
+              typeof window.HabiyeCart.addToCart ===
+                "function"
+            ) {
+
+
+              window.HabiyeCart.addToCart(
+                recommendationId,
+                1
+              );
+
+
+            }
+
+          }
+        );
 
 
       }
