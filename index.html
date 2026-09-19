@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Habiye Limited | Electronics & Technology</title>
+
+  <meta
+    name="description"
+    content="Habiye Limited is a Nairobi-based electronics company offering quality electronics, technology products and accessories."
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- =========================
+       DYNAMIC HEADER
+  ========================== -->
+
+  <div id="site-header"></div>
+
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+      <div class="container hero-content">
+
+        <div class="hero-text">
+
+          <span class="hero-label">
+            HABIYE LIMITED
+          </span>
+
+
+          <h1>
+            Technology
+            <span>For The Way You Live.</span>
+          </h1>
+
+
+          <p>
+            Discover quality electronics, smart devices and technology
+            accessories from Habiye Limited, based in Nairobi, Kenya.
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="#products"
+              class="button primary-button"
+            >
+              Shop Products
+            </a>
+
+
+            <a
+              href="#contact"
+              class="button secondary-button"
+            >
+              Contact Us
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+          <div class="hero-card">
+
+            <div class="hero-icon">
+              ⚡
+            </div>
+
+            <h3>
+              Habiye Electronics
+            </h3>
+
+            <p>
+              Smart technology for modern living.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================== -->
+
+    <section
+      class="section categories-section"
+      id="categories"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-label">
+              EXPLORE
+            </span>
+
+            <h2>
+              Shop By Category
+            </h2>
+
+            <p>
+              Find the technology and electronics you need.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="category-grid">
+
+
+          <button
+            class="category-card"
+            data-category="Smartphones"
+          >
+
+            <div class="category-icon">
+              📱
+            </div>
+
+            <h3>
+              Smartphones
+            </h3>
+
+            <p>
+              Mobile devices
+            </p>
+
+          </button>
+
+
+
+          <button
+            class="category-card"
+            data-category="Laptops"
+          >
+
+            <div class="category-icon">
+              💻
+            </div>
+
+            <h3>
+              Laptops
+            </h3>
+
+            <p>
+              Computers & laptops
+            </p>
+
+          </button>
+
+
+
+          <button
+            class="category-card"
+            data-category="Audio"
+          >
+
+            <div class="category-icon">
+              🎧
+            </div>
+
+            <h3>
+              Audio
+            </h3>
+
+            <p>
+              Headphones & speakers
+            </p>
+
+          </button>
+
+
+
+          <button
+            class="category-card"
+            data-category="Televisions"
+          >
+
+            <div class="category-icon">
+              📺
+            </div>
+
+            <h3>
+              Televisions
+            </h3>
+
+            <p>
+              TVs & entertainment
+            </p>
+
+          </button>
+
+
+
+          <button
+            class="category-card"
+            data-category="Accessories"
+          >
+
+            <div class="category-icon">
+              🔌
+            </div>
+
+            <h3>
+              Accessories
+            </h3>
+
+            <p>
+              Chargers & accessories
+            </p>
+
+          </button>
+
+
+
+          <button
+            class="category-card"
+            data-category="Gaming"
+          >
+
+            <div class="category-icon">
+              🎮
+            </div>
+
+            <h3>
+              Gaming
+            </h3>
+
+            <p>
+              Gaming equipment
+            </p>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
+    <section
+      class="section products-section"
+      id="products"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-label">
+              HABIYE COLLECTION
+            </span>
+
+            <h2>
+              Featured Products
+            </h2>
+
+            <p>
+              Browse some of the products available from Habiye Limited.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Search and filtering -->
+
+        <div class="product-tools">
+
+          <div class="search-box">
+
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Search products..."
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <select id="categoryFilter">
+
+            <option value="All">
+              All Categories
+            </option>
+
+            <option value="Smartphones">
+              Smartphones
+            </option>
+
+            <option value="Laptops">
+              Laptops
+            </option>
+
+            <option value="Audio">
+              Audio
+            </option>
+
+            <option value="Televisions">
+              Televisions
+            </option>
+
+            <option value="Accessories">
+              Accessories
+            </option>
+
+            <option value="Gaming">
+              Gaming
+            </option>
+
+            <button
+  class="category-card"
+  data-category="Tablets"
+>
+
+  <div class="category-icon">
+    📱
+  </div>
+
+  <h3>
+    Tablets
+  </h3>
+
+  <p>
+    Portable devices
+  </p>
+
+</button>
+
+          </select>
+
+        </div>
+
+
+        <div
+          class="product-grid"
+          id="productGrid"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BUSINESS VALUE
+    ========================== -->
+
+<section class="business-section" id="about">
+
+      <div class="container business-content">
+
+        <div class="business-text">
+
+          <span class="section-label">
+            WHY HABIYE
+          </span>
+
+          <h2>
+            Electronics For Work,
+            Entertainment & Everyday Life.
+          </h2>
+
+          <p>
+            Habiye Limited provides customers with access to technology
+            products designed to support modern lifestyles, businesses,
+            entertainment and everyday digital needs.
+          </p>
+
+
+          <ul class="business-list">
+
+            <li>
+              ✓ Quality electronics
+            </li>
+
+            <li>
+              ✓ Competitive pricing
+            </li>
+
+            <li>
+              ✓ Customer-focused service
+            </li>
+
+            <li>
+              ✓ Convenient ordering
+            </li>
+
+            <li>
+              ✓ Nairobi-based business
+            </li>
+
+          </ul>
+
+
+          <a
+            href="#contact"
+            class="button primary-button"
+          >
+            Talk To Habiye
+          </a>
+
+        </div>
+
+
+        <div class="business-card">
+
+          <div class="business-card-icon">
+            H
+          </div>
+
+          <h3>
+            Habiye Limited
+          </h3>
+
+          <p>
+            Electronics & Technology
+          </p>
+
+          <div class="business-location">
+            📍 Nairobi, Kenya
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         TRUST SECTION
+    ========================== -->
+
+    <section class="section trust-section">
+
+      <div class="container">
+
+        <div class="trust-grid">
+
+
+          <div class="trust-card">
+
+            <div>
+              🚚
+            </div>
+
+            <h3>
+              Delivery
+            </h3>
+
+            <p>
+              Convenient delivery options for customers.
+            </p>
+
+          </div>
+
+
+
+          <div class="trust-card">
+
+            <div>
+              💬
+            </div>
+
+            <h3>
+              Customer Support
+            </h3>
+
+            <p>
+              Get assistance before and after your purchase.
+            </p>
+
+          </div>
+
+
+
+          <div class="trust-card">
+
+            <div>
+              🛡️
+            </div>
+
+            <h3>
+              Quality
+            </h3>
+
+            <p>
+              Products presented with clear information.
+            </p>
+
+          </div>
+
+
+
+          <div class="trust-card">
+
+            <div>
+              💳
+            </div>
+
+            <h3>
+              Easy Ordering
+            </h3>
+
+            <p>
+              Contact us to confirm availability and ordering.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section
+      class="section contact-section"
+      id="contact"
+    >
+
+      <div class="container contact-grid">
+
+        <div class="contact-information">
+
+          <span class="section-label">
+            GET IN TOUCH
+          </span>
+
+          <h2>
+            Let's Talk Technology.
+          </h2>
+
+          <p>
+            Have a question about a product, price, availability or delivery?
+            Contact Habiye Limited.
+          </p>
+
+
+          <div class="contact-item">
+
+            <strong>
+              📍 Location
+            </strong>
+
+            <span>
+              Nairobi, Kenya
+            </span>
+
+          </div>
+
+
+          <div class="contact-item">
+
+            <strong>
+              📞 Phone
+            </strong>
+
+            <span>
+              +254 700 000 000
+            </span>
+
+          </div>
+
+
+          <div class="contact-item">
+
+            <strong>
+              ✉️ Email
+            </strong>
+
+            <span>
+              info@habiye.co.ke
+            </span>
+
+          </div>
+
+
+          <div class="contact-item">
+
+            <strong>
+              🕘 Business Hours
+            </strong>
+
+            <span>
+              Monday – Saturday
+            </span>
+
+          </div>
+
+        </div>
+
+
+
+        <form
+          class="contact-form"
+          id="contactForm"
+        >
+
+          <h3>
+            Send Us A Message
+          </h3>
+
+
+          <label for="name">
+            Full Name
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+          >
+
+
+          <label for="email">
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          >
+
+
+          <label for="phone">
+            Phone Number
+          </label>
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="+254..."
+          >
+
+
+          <label for="message">
+            Message
+          </label>
+
+          <textarea
+            id="message"
+            rows="5"
+            placeholder="How can we help you?"
+            required
+          ></textarea>
+
+
+          <button
+            type="submit"
+            class="button primary-button"
+          >
+            Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================
+       DYNAMIC FOOTER
+  ========================== -->
+
+  <div id="site-footer"></div>
+
+
+
+  <!-- =========================
+       PRODUCT MODAL
+  ========================== -->
+
+  <div
+    class="modal-overlay"
+    id="productModal"
+  >
+
+    <div class="modal">
+
+      <button
+        class="modal-close"
+        data-close-modal
+        type="button"
+      >
+        ×
+      </button>
+
+      <div id="productModalContent"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =========================
+       CART MODAL
+  ========================== -->
+
+  <div
+    class="modal-overlay"
+    id="cartModal"
+  >
+
+    <div class="modal">
+
+      <button
+        class="modal-close"
+        data-close-modal
+        type="button"
+      >
+        ×
+      </button>
+
+      <h2>
+        Your Cart
+      </h2>
+
+      <div
+        class="cart-items"
+        id="cartItems"
+      ></div>
+
+      <div class="cart-summary">
+
+        <div class="cart-total">
+
+          <span>
+            Total
+          </span>
+
+          <strong id="cartTotal">
+            KSh 0
+          </strong>
+
+        </div>
+
+
+        <button
+          class="button primary-button full-button"
+          id="whatsappButton"
+          type="button"
+        >
+          Order via WhatsApp
+        </button>
+
+
+        <button
+          class="button danger-button full-button"
+          id="clearCartButton"
+          type="button"
+        >
+          Clear Cart
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <div
+    class="toast"
+    id="toast"
+  ></div>
+
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+<script src="products.js"></script>
+<script src="components.js"></script>
+<script src="cart.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
+
