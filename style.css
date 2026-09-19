@@ -1225,123 +1225,111 @@ a {
 
 }
 
-
 /* =========================
    CONTACT
 ========================= */
 
 .contact-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 60px;
-
-  align-items: start;
-
+  display: block;
+  width: 100%;
 }
 
+.contact-information {
+  width: 100%;
+}
 
-.contact-information p {
+/* Top section */
+.contact-information .section-label {
+  display: block;
+  margin-bottom: 10px;
+}
 
+.contact-information h2 {
+  margin: 0;
+}
+
+.contact-information > p {
   color: var(--muted);
-
-  max-width: 550px;
-
-  margin: 20px 0 30px;
-
+  max-width: 750px;
+  margin: 20px 0 35px;
 }
 
+/* Contact details spread horizontally */
+.contact-information {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 40px;
+  align-items: start;
+}
 
+/* Keep heading elements across the entire top */
+.contact-information .section-label,
+.contact-information h2,
+.contact-information > p {
+  grid-column: 1 / -1;
+}
+
+/* Individual contact information */
 .contact-item {
-
   display: flex;
-
   flex-direction: column;
-
-  margin-bottom: 20px;
-
+  margin: 0;
+  min-width: 0;
 }
-
 
 .contact-item strong {
-
-  margin-bottom: 3px;
-
+  margin-bottom: 5px;
 }
-
 
 .contact-item span {
-
   color: var(--muted);
-
 }
 
-
+/* Hide the unused form */
 .contact-form {
+  display: none;
+}
 
-  background: white;
 
-  border: 1px solid var(--border);
+/* =========================
+   MOBILE
+========================= */
 
-  padding: 30px;
+@media (max-width: 760px) {
 
-  border-radius: var(--radius);
-
-  box-shadow: var(--shadow);
+  .contact-information {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
 
 }
 
 
-.contact-form h3 {
+@media (max-width: 480px) {
 
-  font-size: 1.4rem;
-
-  margin-bottom: 20px;
-
-}
-
-
-.contact-form label {
-
-  display: block;
-
-  font-size: 0.85rem;
-
-  font-weight: 700;
-
-  margin: 14px 0 6px;
+  .contact-information {
+    grid-template-columns: 1fr;
+  }
 
 }
 
 
-.contact-form input,
-.contact-form textarea {
-
-  width: 100%;
-
-  border: 1px solid var(--border);
-
-  border-radius: 10px;
-
-  padding: 13px;
-
-  outline: none;
-
-  resize: vertical;
-
+/* Center the contact heading section */
+.contact-information .section-label,
+.contact-information h2,
+.contact-information > p {
+  text-align: center;
+  grid-column: 1 / -1;
 }
 
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-
-  border-color: var(--primary);
-
+.contact-information > p {
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.contact-information .contact-item {
+  transform: translateX(7rem);
+}
 
 /* =========================
    FOOTER
