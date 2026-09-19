@@ -1,1218 +1,1236 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <title>Product | Habiye Limited</title>
 
-  <title>
-    Product Details | Habiye Limited
-  </title>
-
-  <meta
-    name="description"
-    content="View detailed product information and recommendations from Habiye Limited."
-  >
-
-  <!-- MAIN WEBSITE STYLES -->
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
-
+  <link rel="stylesheet" href="style.css">
 
   <style>
-
-    /* =========================
-       PRODUCT DETAILS PAGE
-    ========================== */
+    /* =========================================================
+       PRODUCT DETAIL PAGE
+    ========================================================= */
 
     .product-page {
-
-      max-width: 1200px;
-
-      margin: 0 auto;
-
-      padding: 60px 20px;
-
+      padding: 40px 0 70px;
     }
-
 
     .back-link {
-
-      display: inline-block;
-
-      margin-bottom: 30px;
-
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 25px;
+      color: var(--dark);
       text-decoration: none;
-
-      font-weight: 600;
-
+      font-weight: 700;
     }
 
+    .back-link:hover {
+      text-decoration: underline;
+    }
 
     .product-details {
-
       display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 50px;
-
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 45px;
       align-items: start;
-
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 25px;
     }
 
+    .product-detail-image-wrapper {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #f1f5f9;
+    }
 
     .product-main-image {
-
       width: 100%;
-
-      max-height: 550px;
-
+      height: 100%;
       object-fit: cover;
-
-      border-radius: 16px;
-
       display: block;
-
     }
 
-
-    .product-details .product-category {
-
-      display: inline-block;
-
-      margin-right: 10px;
-
+    .product-detail-info {
+      min-width: 0;
     }
 
-
-    .product-details .product-tag {
-
-      position: static;
-
+    .product-detail-tag {
       display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #f97316;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
 
+    .product-detail-category {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .product-detail-info h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .product-detail-rating {
+      margin: 0 0 18px;
+      color: #f59e0b;
+      font-size: 0.95rem;
+    }
+
+    .product-detail-rating span {
+      color: var(--muted);
       margin-left: 5px;
-
     }
 
-
-    .product-details h1 {
-
-      margin: 15px 0;
-
-      font-size: 42px;
-
-      line-height: 1.15;
-
-    }
-
-
-    .product-details .rating {
-
+    .product-detail-description {
+      color: var(--muted);
+      line-height: 1.7;
       margin-bottom: 20px;
-
-      font-size: 18px;
-
     }
 
-
-    .product-details .description {
-
-      font-size: 17px;
-
-      line-height: 1.7;
-
-      margin-bottom: 25px;
-
-    }
-
-
-    .product-full-details {
-
-      margin-bottom: 25px;
-
-      padding: 20px;
-
-      border-radius: 12px;
-
-      background: rgba(0, 0, 0, 0.04);
-
-    }
-
-
-    .product-full-details strong {
-
+    .product-detail-price {
       display: block;
-
-      margin-bottom: 10px;
-
-    }
-
-
-    .product-full-details p {
-
-      margin: 0;
-
-      line-height: 1.7;
-
-    }
-
-
-    .product-details .main-product-price {
-
-      display: block;
-
-      font-size: 30px;
-
-      margin-bottom: 25px;
-
+      font-size: 1.7rem;
       font-weight: 900;
-
+      margin-bottom: 22px;
     }
-
-
-    /* =========================
-       PURCHASE CONTROLS
-    ========================== */
 
     .purchase-controls {
-
       display: flex;
-
       align-items: center;
-
       gap: 15px;
-
-      margin-bottom: 35px;
-
+      flex-wrap: wrap;
+      margin-bottom: 25px;
     }
-
 
     .quantity-control {
-
-      display: flex;
-
+      display: inline-flex;
       align-items: center;
-
-      gap: 15px;
-
-      border: 1px solid #ddd;
-
-      border-radius: 8px;
-
-      padding: 5px 10px;
-
-      background: white;
-
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
     }
-
 
     .quantity-control button {
-
-      border: none;
-
-      background: transparent;
-
-      font-size: 22px;
-
+      width: 42px;
+      height: 42px;
+      border: 0;
+      background: #f8fafc;
+      font-size: 1.2rem;
+      font-weight: 800;
       cursor: pointer;
-
-      padding: 5px 10px;
-
     }
 
+    .quantity-control button:hover {
+      background: #e2e8f0;
+    }
 
     .quantity-control span {
-
-      min-width: 25px;
-
+      min-width: 45px;
       text-align: center;
-
-      font-weight: 600;
-
+      font-weight: 800;
     }
 
-
-    /* =========================
-       CUSTOMIZATION
-    ========================== */
-
-    .customization-section {
-
-      margin-top: 30px;
-
+    .main-add-to-cart {
+      min-height: 42px;
     }
 
-
-    .customization-section h3 {
-
-      margin-bottom: 15px;
-
+    .product-full-details {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
     }
 
+    .product-full-details h3 {
+      margin: 0 0 10px;
+    }
 
-    .customization-placeholder {
-
-      padding: 20px;
-
-      border: 1px dashed #ccc;
-
-      border-radius: 12px;
-
+    .product-full-details p {
+      color: var(--muted);
       line-height: 1.7;
-
+      margin: 0;
     }
 
-
-    /* =========================
+    /* =========================================================
        RECOMMENDED PRODUCTS
-       
-       These use the SAME
-       product-card CSS from
-       style.css.
-    ========================== */
+    ========================================================= */
 
     .recommended-section {
-
-      margin-top: 80px;
-
+      margin-top: 55px;
     }
 
-
-    .recommended-section .section-heading {
-
-      margin-bottom: 35px;
-
+    .section-heading {
+      margin-bottom: 22px;
     }
 
+    .section-heading h2 {
+      margin: 0 0 7px;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
 
     .recommended-grid {
-
       display: grid;
-
-      grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 22px;
-
       align-items: stretch;
-
     }
 
+    /* =========================================================
+       ALL PRODUCTS
+    ========================================================= */
 
-    /* =========================
+    .all-products-section {
+      margin-top: 65px;
+    }
+
+    .all-products-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .all-products-header h2 {
+      margin: 0 0 7px;
+    }
+
+    .all-products-header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .products-count {
+      color: var(--muted);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    /*
+      Uses the SAME .product-grid and .product-card classes
+      from style.css used by index.html.
+    */
+    #allProductsGrid {
+      width: 100%;
+    }
+
+    .load-more-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .load-more-button {
+      min-width: 150px;
+    }
+
+    .no-products-message {
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    /* =========================================================
        RESPONSIVE
-    ========================== */
+    ========================================================= */
 
     @media (max-width: 1000px) {
-
       .recommended-grid {
-
-        grid-template-columns:
-          repeat(3, minmax(0, 1fr));
-
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
-
-    }
-
-
-    @media (max-width: 900px) {
 
       .product-details {
-
-        grid-template-columns: 1fr;
-
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
       }
-
-
-      .recommended-grid {
-
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
-
-      }
-
     }
 
+    @media (max-width: 760px) {
+      .product-details {
+        grid-template-columns: 1fr;
+      }
 
-    @media (max-width: 600px) {
+      .recommended-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
 
+      .all-products-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .products-count {
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 550px) {
       .product-page {
-
-        padding: 40px 15px;
-
+        padding-top: 25px;
       }
 
-
-      .product-details h1 {
-
-        font-size: 32px;
-
+      .product-details {
+        padding: 15px;
+        gap: 25px;
       }
 
+      .product-detail-info h1 {
+        font-size: 1.5rem;
+      }
+
+      .product-detail-price {
+        font-size: 1.4rem;
+      }
+
+      .recommended-grid {
+        grid-template-columns: 1fr;
+      }
 
       .purchase-controls {
-
-        flex-direction: column;
-
         align-items: stretch;
-
+        flex-direction: column;
       }
-
 
       .quantity-control {
-
-        justify-content: center;
-
+        width: fit-content;
       }
 
-
-      .recommended-grid {
-
-        grid-template-columns:
-          repeat(2, minmax(0, 1fr));
-
-        gap: 10px;
-
+      .main-add-to-cart {
+        width: 100%;
       }
-
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
-  <!-- =========================
-       DYNAMIC HEADER
-  ========================== -->
-
+  <!-- HEADER -->
   <div id="site-header"></div>
-
-
-  <!-- =========================
-       PRODUCT PAGE
-  ========================== -->
 
   <main class="product-page">
 
+    <div class="container">
 
-    <!-- =========================
-         BACK TO PRODUCTS
-    ========================== -->
+      <!-- BACK -->
+      <a href="index.html" class="back-link">
+        ← Back to Store
+      </a>
 
-    <a
-      href="index.html"
-      class="back-link"
-    >
+      <!-- =====================================================
+           SELECTED PRODUCT
+      ====================================================== -->
 
-      ← Back to Products
-
-    </a>
-
-
-    <!-- =========================
-         PRODUCT DETAILS
-    ========================== -->
-
-    <section
-      class="product-details"
-      id="productDetails"
-    >
-
-      <!-- JavaScript inserts
-           selected product here -->
-
-    </section>
+      <section id="productDetails">
+        <!-- Filled dynamically by JavaScript -->
+      </section>
 
 
-    <!-- =========================
-         RECOMMENDED PRODUCTS
-    ========================== -->
+      <!-- =====================================================
+           RECOMMENDED PRODUCTS
+      ====================================================== -->
 
-    <section
-      class="recommended-section"
-      id="recommendedSection"
-    >
-
-
-      <div class="section-heading">
-
-        <h2>
-          You May Also Like
-        </h2>
-
-        <p>
-          Explore more products from Habiye Limited.
-        </p>
-
-      </div>
-
-
-      <div
-        class="recommended-grid"
-        id="recommendedGrid"
+      <section
+        id="recommendedSection"
+        class="recommended-section"
+        style="display: none;"
       >
 
-        <!-- JavaScript inserts
-             recommended products here -->
+        <div class="section-heading">
+          <h2>You May Also Like</h2>
+          <p>Products related to what you're currently viewing.</p>
+        </div>
 
-      </div>
+        <div
+          id="recommendedGrid"
+          class="recommended-grid"
+        ></div>
+
+      </section>
 
 
-    </section>
+      <!-- =====================================================
+           ALL PRODUCTS
+      ====================================================== -->
 
+      <section class="all-products-section">
+
+        <div class="all-products-header">
+
+          <div>
+            <h2>Explore Our Products</h2>
+            <p>Browse more products available in our store.</p>
+          </div>
+
+          <div
+            id="productsCount"
+            class="products-count"
+          ></div>
+
+        </div>
+
+        <!--
+          IMPORTANT:
+          .product-grid and .product-card are the SAME classes
+          used by index.html.
+        -->
+        <div
+          id="allProductsGrid"
+          class="product-grid"
+        ></div>
+
+        <div
+          id="noProductsMessage"
+          class="no-products-message"
+          style="display: none;"
+        >
+          No products are available at the moment.
+        </div>
+
+        <div
+          id="loadMoreWrapper"
+          class="load-more-wrapper"
+          style="display: none;"
+        >
+          <button
+            type="button"
+            id="loadMoreButton"
+            class="button primary-button load-more-button"
+          >
+            Load More
+          </button>
+        </div>
+
+      </section>
+
+    </div>
 
   </main>
 
 
-  <!-- =========================
-       DYNAMIC FOOTER
-  ========================== -->
-
+  <!-- FOOTER -->
   <div id="site-footer"></div>
 
 
-  <!-- =========================
-       JAVASCRIPT FILES
-  ========================== -->
+  <!-- =======================================================
+       EXISTING SITE SCRIPTS
+  ======================================================== -->
 
   <script src="products.js"></script>
-
   <script src="components.js"></script>
-
   <script src="cart.js"></script>
 
 
-  <!-- =========================
+  <!-- =======================================================
        PRODUCT PAGE SCRIPT
-  ========================== -->
+  ======================================================== -->
 
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      () => {
+      const products = Array.isArray(window.products)
+        ? window.products
+        : [];
 
+      const productDetails = document.getElementById("productDetails");
+      const recommendedSection = document.getElementById("recommendedSection");
+      const recommendedGrid = document.getElementById("recommendedGrid");
 
-        /* =========================
-           GET PAGE ELEMENTS
-        ========================== */
-
-        const productDetails =
-          document.getElementById(
-            "productDetails"
-          );
-
-
-        const recommendedGrid =
-          document.getElementById(
-            "recommendedGrid"
-          );
+      const allProductsGrid = document.getElementById("allProductsGrid");
+      const productsCount = document.getElementById("productsCount");
+      const loadMoreWrapper = document.getElementById("loadMoreWrapper");
+      const loadMoreButton = document.getElementById("loadMoreButton");
+      const noProductsMessage = document.getElementById("noProductsMessage");
 
 
-        /* =========================
-           GET PRODUCT ID
-        ========================== */
+      /* =====================================================
+         GET CURRENT PRODUCT
+      ====================================================== */
 
-        const urlParams =
-          new URLSearchParams(
-            window.location.search
-          );
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = Number(urlParams.get("id"));
 
-
-        const productId =
-          Number(
-            urlParams.get("id")
-          );
+      const selectedProduct = products.find(
+        product => Number(product.id) === productId
+      );
 
 
-        /* =========================
-           FIND SELECTED PRODUCT
-        ========================== */
+      /* =====================================================
+         IF PRODUCT DOES NOT EXIST
+      ====================================================== */
 
-        const selectedProduct =
-          (window.products || []).find(
-            product =>
-              Number(product.id) ===
-              productId
-          );
-
-
-        /* =========================
-           PRODUCT NOT FOUND
-        ========================== */
-
-        if (!selectedProduct) {
-
-
-          productDetails.innerHTML = `
-
-            <div>
-
-              <h1>
-                Product Not Found
-              </h1>
-
-
-              <p>
-                The product you are looking for
-                could not be found.
-              </p>
-
-
-              <a
-                href="index.html"
-                class="button primary-button"
-              >
-
-                Return to Products
-
-              </a>
-
-            </div>
-
-          `;
-
-
-          recommendedGrid.innerHTML = "";
-
-
-          return;
-
-        }
-
-
-        /* =========================
-           PAGE TITLE
-        ========================== */
-
-        document.title =
-          `${selectedProduct.name} | Habiye Limited`;
-
-
-        /* =========================
-           PRODUCT DETAILS CONTENT
-        ========================== */
+      if (!selectedProduct) {
 
         productDetails.innerHTML = `
+          <div class="no-products-message">
+            <h2>Product Not Found</h2>
+            <p>
+              The product you're looking for could not be found.
+            </p>
 
-          <!-- PRODUCT IMAGE -->
+            <br>
 
-          <div>
+            <a href="index.html" class="button primary-button">
+              Back to Store
+            </a>
+          </div>
+        `;
+
+        renderAllProducts();
+
+        return;
+      }
+
+
+      /* =====================================================
+         RENDER SELECTED PRODUCT
+      ====================================================== */
+
+      let quantity = 1;
+
+      const productTag = selectedProduct.tag
+        ? `<span class="product-detail-tag">${selectedProduct.tag}</span>`
+        : "";
+
+      const rating = selectedProduct.rating || 0;
+
+      const ratingCount =
+        selectedProduct.ratingCount ||
+        selectedProduct.reviews ||
+        "";
+
+      productDetails.innerHTML = `
+
+        <div class="product-details">
+
+          <div class="product-detail-image-wrapper">
 
             <img
-              class="product-main-image"
               src="${selectedProduct.image}"
               alt="${selectedProduct.name}"
+              class="product-main-image"
+              onerror="this.src='https://via.placeholder.com/600x600?text=Product+Image';"
             >
 
           </div>
 
 
-          <!-- PRODUCT INFORMATION -->
+          <div class="product-detail-info">
 
-          <div>
+            ${productTag}
 
-
-            <!-- CATEGORY -->
-
-            <span class="product-category">
-
-              ${selectedProduct.category}
-
+            <span class="product-detail-category">
+              ${selectedProduct.category || "Product"}
             </span>
 
-
-            <!-- TAG -->
-
-            ${
-              selectedProduct.tag
-                ? `
-
-                  <span class="product-tag">
-
-                    ${selectedProduct.tag}
-
-                  </span>
-
-                `
-                : ""
-            }
-
-
-            <!-- NAME -->
-
             <h1>
-
               ${selectedProduct.name}
-
             </h1>
 
-
-            <!-- RATING -->
-
-            <div class="rating">
-
+            <div class="product-detail-rating">
               ★★★★★
-
-              <span style="color:#667085;">
-
-                ${selectedProduct.rating}
-
-              </span>
-
+              ${
+                ratingCount
+                  ? `<span>${ratingCount}</span>`
+                  : ""
+              }
             </div>
 
-
-            <!-- DESCRIPTION -->
-
-            <p class="description">
-
-              ${selectedProduct.description}
-
+            <p class="product-detail-description">
+              ${selectedProduct.description || ""}
             </p>
 
-
-            <!-- FULL DETAILS -->
-
-            <div class="product-full-details">
-
-              <strong>
-
-                Product Details
-
-              </strong>
-
-
-              <p>
-
-                ${selectedProduct.details}
-
-              </p>
-
-            </div>
-
-
-            <!-- PRICE -->
-
-            <strong class="main-product-price">
-
-              KSh ${Number(
-                selectedProduct.price
-              ).toLocaleString()}
-
+            <strong class="product-detail-price">
+              KSh ${Number(selectedProduct.price || 0).toLocaleString()}
             </strong>
 
 
-            <!-- PURCHASE CONTROLS -->
-
             <div class="purchase-controls">
 
-
-              <!-- QUANTITY -->
-
               <div class="quantity-control">
-
 
                 <button
                   type="button"
                   id="decreaseQuantity"
+                  aria-label="Decrease quantity"
                 >
-
                   −
-
                 </button>
 
-
-                <span id="quantity">
-
+                <span id="quantityValue">
                   1
-
                 </span>
-
 
                 <button
                   type="button"
                   id="increaseQuantity"
+                  aria-label="Increase quantity"
                 >
-
                   +
-
                 </button>
-
 
               </div>
 
-
-              <!-- ADD TO CART -->
 
               <button
                 type="button"
-                class="button primary-button"
-                id="addToCartButton"
+                id="mainAddToCart"
+                class="button primary-button main-add-to-cart"
               >
-
                 Add to Cart
-
               </button>
 
-
             </div>
 
 
-            <!-- CUSTOMIZATION -->
-
-            <div class="customization-section">
-
+            <div class="product-full-details">
 
               <h3>
-
-                Customize This Product
-
+                Product Details
               </h3>
 
-
-              <div class="customization-placeholder">
-
-                Product customization options
-                will appear here based on the
-                product.
-
-                For example: color, storage
-                capacity, RAM, accessories,
-                configuration or other options.
-
-              </div>
-
+              <p>
+                ${selectedProduct.description || "More information about this product will be available soon."}
+              </p>
 
             </div>
-
 
           </div>
 
-        `;
+        </div>
+      `;
 
 
-        /* =========================
-           QUANTITY
-        ========================== */
+      /* =====================================================
+         QUANTITY CONTROLS
+      ====================================================== */
 
-        let quantity = 1;
+      const quantityValue =
+        document.getElementById("quantityValue");
 
+      const decreaseQuantity =
+        document.getElementById("decreaseQuantity");
 
-        const quantityDisplay =
-          document.getElementById(
-            "quantity"
-          );
-
-
-        const increaseQuantity =
-          document.getElementById(
-            "increaseQuantity"
-          );
+      const increaseQuantity =
+        document.getElementById("increaseQuantity");
 
 
-        const decreaseQuantity =
-          document.getElementById(
-            "decreaseQuantity"
-          );
+      decreaseQuantity.addEventListener("click", function () {
+
+        if (quantity > 1) {
+          quantity--;
+          quantityValue.textContent = quantity;
+        }
+
+      });
 
 
-        /* =========================
-           INCREASE QUANTITY
-        ========================== */
+      increaseQuantity.addEventListener("click", function () {
 
-        if (increaseQuantity) {
+        quantity++;
+        quantityValue.textContent = quantity;
 
-          increaseQuantity.addEventListener(
-            "click",
-            () => {
-
-              quantity++;
+      });
 
 
-              quantityDisplay.textContent =
-                quantity;
+      /* =====================================================
+         MAIN PRODUCT ADD TO CART
+      ====================================================== */
 
-            }
+      const mainAddToCart =
+        document.getElementById("mainAddToCart");
+
+
+      mainAddToCart.addEventListener("click", function () {
+
+        if (
+          window.HabiyeCart &&
+          typeof window.HabiyeCart.addToCart === "function"
+        ) {
+
+          window.HabiyeCart.addToCart(
+            selectedProduct.id,
+            quantity
           );
 
         }
 
-
-        /* =========================
-           DECREASE QUANTITY
-        ========================== */
-
-        if (decreaseQuantity) {
-
-          decreaseQuantity.addEventListener(
-            "click",
-            () => {
-
-              if (quantity > 1) {
-
-                quantity--;
+      });
 
 
-                quantityDisplay.textContent =
-                  quantity;
+      /* =====================================================
+         RECOMMENDATIONS
+         SIMPLE SYSTEM — NO RECOMMENDATION ENGINE
+      ====================================================== */
 
-              }
-
-            }
-          );
-
-        }
-
-
-        /* =========================
-           ADD MAIN PRODUCT TO CART
-        ========================== */
-
-        const addToCartButton =
-          document.getElementById(
-            "addToCartButton"
-          );
+      const otherProducts = products.filter(
+        product =>
+          Number(product.id) !== Number(selectedProduct.id)
+      );
 
 
-        if (addToCartButton) {
-
-          addToCartButton.addEventListener(
-            "click",
-            () => {
-
-
-              if (
-                window.HabiyeCart &&
-                typeof window.HabiyeCart.addToCart ===
-                  "function"
-              ) {
+      const sameCategory = otherProducts.filter(
+        product =>
+          product.category &&
+          selectedProduct.category &&
+          product.category === selectedProduct.category
+      );
 
 
-                window.HabiyeCart.addToCart(
-                  selectedProduct.id,
-                  quantity
-                );
+      const differentCategory = otherProducts.filter(
+        product =>
+          !product.category ||
+          !selectedProduct.category ||
+          product.category !== selectedProduct.category
+      );
 
 
-              }
-
-            }
-          );
-
-        }
+      const recommendedProducts = [
+        ...sameCategory,
+        ...differentCategory
+      ].slice(0, 4);
 
 
-        /* =========================
-           FIND OTHER PRODUCTS
-        ========================== */
+      if (recommendedProducts.length > 0) {
 
-        const otherProducts =
-          window.products.filter(
-            product =>
-              Number(product.id) !==
-              Number(selectedProduct.id)
-          );
-
-
-        /* =========================
-           SAME CATEGORY
-        ========================== */
-
-        const sameCategory =
-          otherProducts.filter(
-            product =>
-              product.category ===
-              selectedProduct.category
-          );
-
-
-        /* =========================
-           DIFFERENT CATEGORY
-        ========================== */
-
-        const differentCategory =
-          otherProducts.filter(
-            product =>
-              product.category !==
-              selectedProduct.category
-          );
-
-
-        /* =========================
-           RECOMMENDATION LIST
-           
-           For now we display
-           4 products.
-        ========================== */
-
-        const recommendedProducts = [
-
-          ...sameCategory,
-
-          ...differentCategory
-
-        ].slice(0, 4);
-
-
-        /* =========================
-           RENDER RECOMMENDED PRODUCTS
-           
-           IMPORTANT:
-           These use EXACTLY the same
-           product-card classes used
-           by index.html.
-        ========================== */
+        recommendedSection.style.display = "block";
 
         recommendedGrid.innerHTML =
           recommendedProducts
-            .map(
-              product => `
-
-
-                <article class="product-card">
-
-
-                  <!-- PRODUCT IMAGE -->
-
-                  <div class="product-image-wrapper">
-
-
-                    <img
-                      class="product-image"
-                      src="${product.image}"
-                      alt="${product.name}"
-                      loading="lazy"
-                    >
-
-
-                    ${
-                      product.tag
-                        ? `
-
-                          <span class="product-tag">
-
-                            ${product.tag}
-
-                          </span>
-
-                        `
-                        : ""
-                    }
-
-
-                  </div>
-
-
-                  <!-- PRODUCT CONTENT -->
-
-                  <div class="product-card-content">
-
-
-                    <!-- CATEGORY -->
-
-                    <span class="product-category">
-
-                      ${product.category}
-
-                    </span>
-
-
-                    <!-- PRODUCT NAME -->
-
-                    <h3>
-
-                      ${product.name}
-
-                    </h3>
-
-
-                    <!-- DESCRIPTION -->
-
-                    <p class="product-description">
-
-                      ${product.description}
-
-                    </p>
-
-
-                    <!-- RATING -->
-
-                    <div class="product-rating">
-
-                      ★★★★★
-
-                      <span style="color:#667085;">
-
-                        ${product.rating}
-
-                      </span>
-
-                    </div>
-
-
-                    <!-- PRICE + BUTTONS -->
-
-                    <div class="product-card-bottom">
-
-
-                      <strong class="product-price">
-
-                        KSh ${Number(
-                          product.price
-                        ).toLocaleString()}
-
-                      </strong>
-
-
-                      <!-- ACTION BUTTONS -->
-
-                      <div class="product-actions">
-
-
-                        <!-- VIEW -->
-
-                        <button
-                          type="button"
-                          class="button secondary-button"
-                          data-view-product="${product.id}"
-                        >
-
-                          View
-
-                        </button>
-
-
-                        <!-- ADD TO CART -->
-
-                        <button
-                          type="button"
-                          class="button primary-button"
-                          data-recommendation-cart="${product.id}"
-                        >
-
-                          Add to Cart
-
-                        </button>
-
-
-                      </div>
-
-
-                    </div>
-
-
-                  </div>
-
-
-                </article>
-
-
-              `
-            )
+            .map(renderProductCard)
             .join("");
 
-
-        /* =========================
-           RECOMMENDED PRODUCT ACTIONS
-        ========================== */
-
-        recommendedGrid.addEventListener(
-          "click",
-          event => {
+      }
 
 
-            /* =========================
-               VIEW PRODUCT
-            ========================== */
+      /* =====================================================
+         RECOMMENDATION BUTTONS
+      ====================================================== */
 
-            const viewButton =
-              event.target.closest(
-                "[data-view-product]"
-              );
+      recommendedGrid.addEventListener(
+        "click",
+        function (event) {
 
+          const viewButton =
+            event.target.closest("[data-view-product]");
 
-            if (viewButton) {
-
-
-              const recommendationId =
-                viewButton.dataset.viewProduct;
+          const cartButton =
+            event.target.closest("[data-recommendation-cart]");
 
 
-              window.location.href =
-                `index2.html?id=${recommendationId}`;
+          /* VIEW */
+
+          if (viewButton) {
+
+            const id =
+              Number(viewButton.dataset.viewProduct);
+
+            window.location.href =
+              `index2.html?id=${id}`;
+
+            return;
+          }
 
 
-              return;
+          /* ADD TO CART */
 
-            }
+          if (cartButton) {
 
-
-            /* =========================
-               ADD RECOMMENDED PRODUCT
-               TO CART
-            ========================== */
-
-            const cartButton =
-              event.target.closest(
-                "[data-recommendation-cart]"
-              );
-
-
-            if (!cartButton) {
-
-              return;
-
-            }
-
-
-            const recommendationId =
-              Number(
-                cartButton.dataset
-                  .recommendationCart
-              );
-
+            const id =
+              Number(cartButton.dataset.recommendationCart);
 
             if (
               window.HabiyeCart &&
-              typeof window.HabiyeCart.addToCart ===
-                "function"
+              typeof window.HabiyeCart.addToCart === "function"
             ) {
 
-
-              window.HabiyeCart.addToCart(
-                recommendationId,
-                1
-              );
-
+              window.HabiyeCart.addToCart(id, 1);
 
             }
 
           }
+
+        }
+      );
+
+
+      /* =====================================================
+         DEVICE-BASED INITIAL PRODUCT COUNT
+      ====================================================== */
+
+      function getInitialProductCount() {
+
+        const width = window.innerWidth;
+
+        /*
+          Large desktop:
+          30 products
+
+          Tablet / smaller laptop:
+          20 products
+
+          Mobile:
+          12 products
+        */
+
+        if (width >= 1001) {
+          return 30;
+        }
+
+        if (width >= 551) {
+          return 20;
+        }
+
+        return 12;
+      }
+
+
+      /* =====================================================
+         PRODUCT LIST STATE
+      ====================================================== */
+
+      let visibleProductCount =
+        getInitialProductCount();
+
+
+      /*
+        Products already shown in the recommendation
+        section are NOT removed from this list.
+
+        This section represents the complete store catalogue.
+      */
+
+      const allStoreProducts = createSmartProductOrder(products, selectedProduct);
+
+      function createSmartProductOrder(productList, currentProduct) {
+
+  const remainingProducts = productList.filter(
+    product =>
+      Number(product.id) !== Number(currentProduct?.id)
+  );
+
+  const categories = [
+    ...new Set(
+      remainingProducts
+        .map(product => product.category)
+        .filter(Boolean)
+    )
+  ];
+
+  const productsByCategory = {};
+
+  categories.forEach(category => {
+    productsByCategory[category] =
+      remainingProducts.filter(
+        product => product.category === category
+      );
+  });
+
+
+  /*
+    Shuffle each category independently.
+  */
+  Object.keys(productsByCategory).forEach(category => {
+
+    productsByCategory[category] =
+      shuffleArray(productsByCategory[category]);
+
+  });
+
+
+  /*
+    Take products from different categories
+    one by one instead of taking 30 from one category.
+  */
+  const result = [];
+
+  let productsRemaining = true;
+
+  while (productsRemaining) {
+
+    productsRemaining = false;
+
+    for (const category of categories) {
+
+      if (
+        productsByCategory[category] &&
+        productsByCategory[category].length > 0
+      ) {
+
+        result.push(
+          productsByCategory[category].shift()
         );
 
+        productsRemaining = true;
+      }
+
+    }
+
+  }
+
+
+  return result;
+}
+
+
+/*
+  Fisher-Yates shuffle
+*/
+function shuffleArray(array) {
+
+  const shuffled = [...array];
+
+  for (
+    let i = shuffled.length - 1;
+    i > 0;
+    i--
+  ) {
+
+    const j =
+      Math.floor(Math.random() * (i + 1));
+
+    [
+      shuffled[i],
+      shuffled[j]
+    ] = [
+      shuffled[j],
+      shuffled[i]
+    ];
+  }
+
+  return shuffled;
+}
+
+
+      /* =====================================================
+         RENDER ALL PRODUCTS
+      ====================================================== */
+
+      function renderAllProducts() {
+
+        if (!allStoreProducts.length) {
+
+          allProductsGrid.innerHTML = "";
+
+          productsCount.textContent = "";
+
+          noProductsMessage.style.display = "block";
+
+          loadMoreWrapper.style.display = "none";
+
+          return;
+        }
+
+
+        noProductsMessage.style.display = "none";
+
+
+        const visibleProducts =
+          allStoreProducts.slice(
+            0,
+            visibleProductCount
+          );
+
+
+        allProductsGrid.innerHTML =
+          visibleProducts
+            .map(renderProductCard)
+            .join("");
+
+
+        productsCount.textContent =
+          `Showing ${visibleProducts.length} of ${allStoreProducts.length} products`;
+
+
+        if (
+          visibleProductCount <
+          allStoreProducts.length
+        ) {
+
+          loadMoreWrapper.style.display = "flex";
+
+        } else {
+
+          loadMoreWrapper.style.display = "none";
+
+        }
 
       }
 
-    );
 
+      /* =====================================================
+         LOAD MORE
+      ====================================================== */
+
+      loadMoreButton.addEventListener(
+        "click",
+        function () {
+
+          const width = window.innerWidth;
+
+          let loadAmount;
+
+
+          if (width >= 1001) {
+
+            loadAmount = 30;
+
+          } else if (width >= 551) {
+
+            loadAmount = 20;
+
+          } else {
+
+            loadAmount = 12;
+
+          }
+
+
+          visibleProductCount += loadAmount;
+
+
+          if (
+            visibleProductCount >
+            allStoreProducts.length
+          ) {
+
+            visibleProductCount =
+              allStoreProducts.length;
+
+          }
+
+
+          renderAllProducts();
+
+
+          /*
+            Keep the user's position around the newly
+            loaded products instead of jumping to the top.
+          */
+
+          setTimeout(function () {
+
+            const cards =
+              allProductsGrid.querySelectorAll(
+                ".product-card"
+              );
+
+            if (cards.length > 0) {
+
+              const lastCard =
+                cards[
+                  Math.max(
+                    0,
+                    cards.length - loadAmount
+                  )
+                ];
+
+              if (lastCard) {
+
+                lastCard.scrollIntoView({
+                  behavior: "smooth",
+                  block: "center"
+                });
+
+              }
+
+            }
+
+          }, 100);
+
+        }
+      );
+
+
+      /* =====================================================
+         PRODUCT CARD
+         SAME CLASSES USED BY index.html
+      ====================================================== */
+
+      function renderProductCard(product) {
+
+        const tag = product.tag
+          ? `<span class="product-tag">${product.tag}</span>`
+          : "";
+
+
+        const ratingCount =
+          product.ratingCount ||
+          product.reviews ||
+          "";
+
+
+        return `
+
+          <article class="product-card">
+
+            <div class="product-image-wrapper">
+
+              <img
+                class="product-image"
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy"
+                onerror="this.src='https://via.placeholder.com/500x500?text=Product+Image';"
+              >
+
+              ${tag}
+
+            </div>
+
+
+            <div class="product-card-content">
+
+              <span class="product-category">
+                ${product.category || "Product"}
+              </span>
+
+
+              <h3>
+                ${product.name}
+              </h3>
+
+
+              <p class="product-description">
+                ${product.description || ""}
+              </p>
+
+
+              <div class="product-rating">
+
+                ★★★★★
+
+                ${
+                  ratingCount
+                    ? `<span>${ratingCount}</span>`
+                    : ""
+                }
+
+              </div>
+
+
+              <div class="product-card-bottom">
+
+                <strong class="product-price">
+                  KSh ${Number(product.price || 0).toLocaleString()}
+                </strong>
+
+
+                <div class="product-actions">
+
+                  <button
+                    type="button"
+                    class="button secondary-button"
+                    data-view-product="${product.id}"
+                  >
+                    View
+                  </button>
+
+
+                  <button
+                    type="button"
+                    class="button primary-button"
+                    data-product-cart="${product.id}"
+                  >
+                    Add to Cart
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `;
+      }
+
+
+      /* =====================================================
+         ALL PRODUCT BUTTONS
+      ====================================================== */
+
+      allProductsGrid.addEventListener(
+        "click",
+        function (event) {
+
+          const viewButton =
+            event.target.closest("[data-view-product]");
+
+          const cartButton =
+            event.target.closest("[data-product-cart]");
+
+
+          /* VIEW */
+
+          if (viewButton) {
+
+            const id =
+              Number(viewButton.dataset.viewProduct);
+
+            window.location.href =
+              `index2.html?id=${id}`;
+
+            return;
+          }
+
+
+          /* ADD TO CART */
+
+          if (cartButton) {
+
+            const id =
+              Number(cartButton.dataset.productCart);
+
+
+            if (
+              window.HabiyeCart &&
+              typeof window.HabiyeCart.addToCart === "function"
+            ) {
+
+              window.HabiyeCart.addToCart(id, 1);
+
+            }
+
+          }
+
+        }
+      );
+
+
+      /* =====================================================
+         INITIAL PRODUCT LIST
+      ====================================================== */
+
+      renderAllProducts();
+
+    });
   </script>
 
-
 </body>
-
 </html>
