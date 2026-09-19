@@ -1331,6 +1331,16 @@ a {
   transform: translateX(7rem);
 }
 
+.contact-email {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.contact-email:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 /* =========================
    FOOTER
 ========================= */
