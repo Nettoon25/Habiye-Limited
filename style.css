@@ -2392,3 +2392,874 @@ html.dark-theme .footer-bottom a {
 html.dark-theme .footer-bottom a:hover {
   color: #60a5fa;
 }
+
+
+
+/* ==================================================
+   CART MODAL — POLISHED DESIGN
+================================================== */
+
+#cartModal {
+  padding: 20px;
+}
+
+#cartModal .modal {
+  width: min(720px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+/* Cart heading */
+
+#cartModal .modal > h2 {
+  margin: 0 0 24px;
+  font-size: 1.6rem;
+}
+
+
+/* Close button */
+
+#cartModal .modal-close {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s ease;
+}
+
+#cartModal .modal-close:hover {
+  background: #e2e8f0;
+  transform: rotate(90deg);
+}
+
+
+/* ==================================================
+   CART ITEMS
+================================================== */
+
+#cartModal .cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+
+/* Individual cart item */
+
+#cartModal .cart-item {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+/* Product image */
+
+#cartModal .cart-item-image {
+  width: 90px;
+  height: 90px;
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  background: #f1f5f9;
+  flex-shrink: 0;
+}
+
+#cartModal .cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* Product information */
+
+#cartModal .cart-item-info {
+  min-width: 0;
+}
+
+#cartModal .cart-item-name {
+  margin: 0 0 6px;
+
+  font-size: 1rem;
+  line-height: 1.3;
+  font-weight: 800;
+
+  color: #0f172a;
+}
+
+#cartModal .cart-item-price {
+  margin: 0 0 12px;
+
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+
+/* Quantity controls */
+
+#cartModal .cart-item-quantity {
+  display: inline-flex;
+  align-items: center;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  overflow: hidden;
+
+  height: 34px;
+}
+
+#cartModal .cart-item-quantity button {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+  background: #f8fafc;
+
+  color: #0f172a;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+#cartModal .cart-item-quantity button:hover {
+  background: #e2e8f0;
+}
+
+#cartModal .cart-item-quantity span {
+  min-width: 34px;
+
+  text-align: center;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+
+/* Item total */
+
+#cartModal .cart-item-total {
+  text-align: right;
+  white-space: nowrap;
+}
+
+#cartModal .cart-item-total strong {
+  display: block;
+
+  font-size: 1rem;
+  font-weight: 800;
+
+  color: #0f172a;
+}
+
+
+/* Remove */
+
+#cartModal .cart-item-remove {
+  margin-top: 8px;
+
+  border: none;
+  background: transparent;
+
+  color: #ef4444;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+#cartModal .cart-item-remove:hover {
+  text-decoration: underline;
+}
+
+
+/* ==================================================
+   CART SUMMARY
+================================================== */
+
+#cartModal .cart-summary {
+  padding-top: 22px;
+  border-top: none;
+}
+
+
+/* Total */
+
+#cartModal .cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 18px;
+
+  font-size: 1rem;
+}
+
+#cartModal .cart-total strong {
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+
+/* Buttons */
+
+#cartModal .cart-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+#cartModal .cart-total {
+  width: 100%;
+}
+
+#cartModal .full-button {
+  width: auto;
+  margin: 0;
+}
+
+
+/* Clear cart */
+
+#cartModal #clearCartButton {
+  order: 1;
+}
+
+
+/* WhatsApp */
+
+#cartModal #whatsappButton {
+  order: 2;
+}
+
+
+/* ==================================================
+   DARK MODE
+================================================== */
+
+html.dark-theme #cartModal .modal {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .modal > h2 {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .modal-close {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+html.dark-theme #cartModal .cart-item {
+  border-color: #334155;
+}
+
+html.dark-theme #cartModal .cart-item-image {
+  background: #0f172a;
+}
+
+html.dark-theme #cartModal .cart-item-name {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .cart-item-price {
+  color: #94a3b8;
+}
+
+html.dark-theme #cartModal .cart-item-quantity {
+  border-color: #475569;
+}
+
+html.dark-theme #cartModal .cart-item-quantity button {
+  background: #334155;
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .cart-item-quantity button:hover {
+  background: #475569;
+}
+
+html.dark-theme #cartModal .cart-item-quantity span {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .cart-item-total strong {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .cart-total {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .cart-total strong {
+  color: #ffffff;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 600px) {
+
+  #cartModal {
+    padding: 10px;
+  }
+
+  #cartModal .modal {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  #cartModal .cart-item {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  #cartModal .cart-item-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  #cartModal .cart-item-total {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  #cartModal .cart-summary {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #cartModal .full-button {
+    width: 100%;
+  }
+
+}
+
+
+/* ==================================================
+   HABIYE CART MODAL — PREMIUM DESIGN
+================================================== */
+
+/* Cart modal */
+
+#cartModal {
+  padding: 20px;
+}
+
+#cartModal .modal {
+  width: min(760px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+
+  padding: 30px;
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ==================================================
+   CART HEADER
+================================================== */
+
+#cartModal .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+#cartModal .modal-header h2 {
+  margin: 0;
+
+  font-size: 1.55rem;
+  font-weight: 900;
+}
+
+
+/* Close button */
+
+#cartModal .modal-close {
+  width: 38px;
+  height: 38px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #f1f5f9;
+  color: #0f172a;
+
+  font-size: 1.15rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.2s ease;
+}
+
+#cartModal .modal-close:hover {
+  background: #e2e8f0;
+  transform: rotate(90deg);
+}
+
+
+/* ==================================================
+   CART ITEMS
+================================================== */
+
+#cartModal .cart-items {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Individual item */
+
+#cartModal .cart-item {
+  display: grid;
+
+  grid-template-columns:
+    82px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  column-gap: 18px;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+/* ==================================================
+   PRODUCT IMAGE
+================================================== */
+
+#cartModal .cart-item-image {
+  width: 82px;
+  height: 82px;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  background: #f1f5f9;
+
+  flex-shrink: 0;
+}
+
+#cartModal .cart-item-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.25s ease;
+}
+
+#cartModal .cart-item:hover .cart-item-image img {
+  transform: scale(1.05);
+}
+
+
+/* ==================================================
+   PRODUCT INFORMATION
+================================================== */
+
+#cartModal .cart-item-info {
+  min-width: 0;
+}
+
+#cartModal .cart-item-info h3 {
+  margin: 0 0 5px;
+
+  font-size: 1rem;
+  line-height: 1.3;
+
+  font-weight: 800;
+
+  color: #0f172a;
+}
+
+#cartModal .cart-item-unit-price {
+  margin: 0 0 10px;
+
+  font-size: 0.82rem;
+
+  color: #64748b;
+}
+
+
+/* ==================================================
+   QUANTITY CONTROL
+================================================== */
+
+#cartModal .cart-item-controls {
+  display: inline-flex;
+
+  align-items: center;
+
+  height: 34px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 9px;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+#cartModal .quantity-button {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+
+  background: #f8fafc;
+
+  color: #0f172a;
+
+  font-size: 1rem;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+#cartModal .quantity-button:hover {
+  background: #e2e8f0;
+}
+
+#cartModal .cart-item-controls span {
+  min-width: 34px;
+
+  text-align: center;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+
+  color: #0f172a;
+}
+
+
+/* ==================================================
+   REMOVE BUTTON
+================================================== */
+
+#cartModal .remove-cart-item {
+  display: block;
+
+  margin-top: 8px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: #ef4444;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+#cartModal .remove-cart-item:hover {
+  text-decoration: underline;
+}
+
+
+/* ==================================================
+   ITEM TOTAL
+================================================== */
+
+#cartModal .cart-item-total {
+  align-self: center;
+
+  white-space: nowrap;
+
+  font-size: 1rem;
+  font-weight: 900;
+
+  color: #0f172a;
+}
+
+
+/* ==================================================
+   CART FOOTER
+================================================== */
+
+#cartModal .cart-footer {
+  padding-top: 22px;
+}
+
+#cartModal .cart-footer > strong {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+
+  font-size: 1rem;
+}
+
+#cartModal #cartTotal {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+
+/* ==================================================
+   CART ACTIONS
+================================================== */
+
+#cartModal .cart-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+#cartModal .cart-actions .button {
+  min-height: 48px;
+
+  border-radius: 999px;
+
+  padding: 12px 22px;
+
+  font-weight: 800;
+}
+
+
+/* Clear cart */
+
+#cartModal #clearCartButton {
+  background: #f1f5f9;
+
+  color: #0f172a;
+
+  border: none;
+}
+
+#cartModal #clearCartButton:hover {
+  background: #e2e8f0;
+}
+
+
+/* WhatsApp */
+
+#cartModal #whatsappButton {
+  flex: 1;
+}
+
+
+/* ==================================================
+   EMPTY CART
+================================================== */
+
+#cartModal .empty-cart {
+  text-align: center;
+
+  padding: 45px 20px;
+}
+
+#cartModal .empty-cart-icon {
+  font-size: 3rem;
+
+  margin-bottom: 12px;
+}
+
+#cartModal .empty-cart h3 {
+  margin: 0 0 8px;
+
+  font-size: 1.15rem;
+}
+
+#cartModal .empty-cart p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 0.9rem;
+}
+
+
+/* ==================================================
+   DARK MODE
+================================================== */
+
+html.dark-theme #cartModal .modal {
+  background: #1e293b;
+  color: #f8fafc;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.55);
+}
+
+html.dark-theme #cartModal .modal-header h2 {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .modal-close {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+html.dark-theme #cartModal .cart-item {
+  border-color: #334155;
+}
+
+html.dark-theme #cartModal .cart-item-image {
+  background: #0f172a;
+}
+
+html.dark-theme #cartModal .cart-item-info h3 {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .cart-item-unit-price {
+  color: #94a3b8;
+}
+
+html.dark-theme #cartModal .cart-item-controls {
+  background: #0f172a;
+  border-color: #475569;
+}
+
+html.dark-theme #cartModal .quantity-button {
+  background: #334155;
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .quantity-button:hover {
+  background: #475569;
+}
+
+html.dark-theme #cartModal .cart-item-controls span {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .cart-item-total {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal .cart-footer > strong {
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal #cartTotal {
+  color: #ffffff;
+}
+
+html.dark-theme #cartModal #clearCartButton {
+  background: #334155;
+  color: #f8fafc;
+}
+
+html.dark-theme #cartModal #clearCartButton:hover {
+  background: #475569;
+}
+
+html.dark-theme #cartModal .empty-cart p {
+  color: #94a3b8;
+}
+
+
+/* ==================================================
+   MOBILE CART
+================================================== */
+
+@media (max-width: 600px) {
+
+  #cartModal {
+    padding: 10px;
+  }
+
+  #cartModal .modal {
+    padding: 22px 18px;
+
+    border-radius: 20px;
+
+    max-height: 94vh;
+  }
+
+  #cartModal .cart-item {
+    grid-template-columns:
+      68px
+      minmax(0, 1fr);
+
+    column-gap: 12px;
+
+    row-gap: 8px;
+  }
+
+  #cartModal .cart-item-image {
+    width: 68px;
+    height: 68px;
+  }
+
+  #cartModal .cart-item-total {
+    grid-column: 2;
+
+    font-size: 0.95rem;
+  }
+
+  #cartModal .cart-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  #cartModal .cart-actions .button {
+    width: 100%;
+  }
+
+}

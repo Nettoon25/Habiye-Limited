@@ -363,82 +363,97 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCart();
 
   }
+/* =========================
+   RENDER CART
+========================= */
 
+function renderCart() {
 
-  /* =========================
-     RENDER CART
-  ========================== */
+  if (!cartItems || !cartTotal) {
+    return;
+  }
 
-  function renderCart() {
+  /* Empty cart */
 
-    if (!cartItems || !cartTotal) {
-      return;
-    }
+  if (cart.length === 0) {
 
+    cartItems.innerHTML = `
+      <div class="empty-cart">
+        <div class="empty-cart-icon">
+          🛒
+        </div>
 
-    if (cart.length === 0) {
+        <h3>Your cart is empty</h3>
 
-      cartItems.innerHTML = `
-        <p class="empty-cart">
-          Your cart is empty.
+        <p>
+          Add some products to your cart to get started.
         </p>
-      `;
+      </div>
+    `;
 
-      cartTotal.textContent =
-        formatCurrency(0);
+    cartTotal.textContent =
+      formatCurrency(0);
 
-      return;
-
-    }
-
-
-    let total = 0;
+    return;
+  }
 
 
-    cartItems.innerHTML =
-      cart
-        .map(item => {
-
-          const product =
-            products.find(
-              product =>
-                product.id ===
-                item.id
-            );
+  let total = 0;
 
 
-          if (!product) {
-            return "";
-          }
+  cartItems.innerHTML =
+    cart
+      .map(item => {
+
+        const product =
+          products.find(
+            product =>
+              product.id === item.id
+          );
 
 
-          const itemTotal =
-            product.price *
-            item.quantity;
+        if (!product) {
+          return "";
+        }
 
 
-          total += itemTotal;
+        const itemTotal =
+          product.price * item.quantity;
 
 
-          return `
-            <div
-              class="cart-item"
-              data-cart-id="${product.id}"
-            >
+        total += itemTotal;
 
-              <div class="cart-item-info">
 
-                <h3>
-                  ${product.name}
-                </h3>
+        return `
+          <div
+            class="cart-item"
+            data-cart-id="${product.id}"
+          >
 
-                <p>
-                  ${formatCurrency(
-                    product.price
-                  )}
-                </p>
+            <!-- PRODUCT IMAGE -->
 
-              </div>
+            <div class="cart-item-image">
+
+              <img
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy"
+              >
+
+            </div>
+
+
+            <!-- PRODUCT INFORMATION -->
+
+            <div class="cart-item-info">
+
+              <h3>
+                ${product.name}
+              </h3>
+
+              <p class="cart-item-unit-price">
+                ${formatCurrency(product.price)}
+              </p>
 
 
               <div class="cart-item-controls">
@@ -447,6 +462,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   type="button"
                   class="quantity-button"
                   data-cart-minus="${product.id}"
+                  aria-label="Decrease quantity"
                 >
                   −
                 </button>
@@ -459,18 +475,10 @@ document.addEventListener("DOMContentLoaded", () => {
                   type="button"
                   class="quantity-button"
                   data-cart-plus="${product.id}"
+                  aria-label="Increase quantity"
                 >
                   +
                 </button>
-
-              </div>
-
-
-              <div class="cart-item-total">
-
-                ${formatCurrency(
-                  itemTotal
-                )}
 
               </div>
 
@@ -485,16 +493,27 @@ document.addEventListener("DOMContentLoaded", () => {
               </button>
 
             </div>
-          `;
-
-        })
-        .join("");
 
 
-    cartTotal.textContent =
-      formatCurrency(total);
+            <!-- ITEM TOTAL -->
 
-  }
+            <div class="cart-item-total">
+
+              ${formatCurrency(itemTotal)}
+
+            </div>
+
+          </div>
+        `;
+
+      })
+      .join("");
+
+
+  cartTotal.textContent =
+    formatCurrency(total);
+
+}
 
 
   /* =========================
@@ -711,90 +730,88 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
   }
+/* =========================
+   WHATSAPP ORDER
+========================== */
+
+if (whatsappButton) {
+
+  whatsappButton.addEventListener(
+    "click",
+    () => {
+
+      if (cart.length === 0) {
+
+        showToast(
+          "Your cart is empty"
+        );
+
+        return;
+
+      }
 
 
-  /* =========================
-     WHATSAPP ORDER
-  ========================== */
+      let message =
+        "Hello Habiye Limited,%0A%0AI would like to place the following order:%0A";
 
-  if (whatsappButton) {
 
-    whatsappButton.addEventListener(
-      "click",
-      () => {
+      let total = 0;
 
-        if (cart.length === 0) {
 
-          showToast(
-            "Your cart is empty"
+      cart.forEach(item => {
+
+        const product =
+          products.find(
+            product =>
+              product.id === item.id
           );
 
-          return;
 
+        if (!product) {
+          return;
         }
 
 
-        let message =
-          "Hello Habiye Limited,%0A%0AI would like to order:%0A";
+        const itemTotal =
+          product.price *
+          item.quantity;
 
 
-        let total = 0;
-
-
-        cart.forEach(item => {
-
-          const product =
-            products.find(
-              product =>
-                product.id ===
-                item.id
-            );
-
-
-          if (!product) {
-            return;
-          }
-
-
-          const itemTotal =
-            product.price *
-            item.quantity;
-
-
-          total += itemTotal;
-
-
-          message +=
-            `- ${product.name} x ${item.quantity} = ${formatCurrency(itemTotal)}%0A`;
-
-        });
+        total += itemTotal;
 
 
         message +=
-          `%0ATotal: ${formatCurrency(total)}`;
+          `%0A• ${product.name} x ${item.quantity} = ${formatCurrency(itemTotal)}`;
+
+      });
 
 
-        /*
-          IMPORTANT:
-          Replace this number with
-          Habiye's real WhatsApp number.
-        */
-
-       const whatsappNumber = "254794600610";
-
-        const whatsappURL =
-          `https://wa.me/${whatsappNumber}?text=${message}`;
+      message +=
+        `%0A%0ATotal Order Value: ${formatCurrency(total)}%0A%0APlease confirm availability and delivery details.Thank you.`;
 
 
-        window.open(
-          whatsappURL,
-          "_blank"
-        );
 
-      }
-    );
+      /*
+        HABIYE WHATSAPP NUMBER
+      */
 
-  }
+      const whatsappNumber =
+        "254742087648";
+
+
+      const whatsappURL =
+        `https://wa.me/${whatsappNumber}?text=${message}`;
+
+
+      window.open(
+        whatsappURL,
+        "_blank"
+      );
+
+    }
+  );
+
+}
 
 
   /* =========================
