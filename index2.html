@@ -403,11 +403,6 @@
 
         </div>
 
-        <!--
-          IMPORTANT:
-          .product-grid and .product-card are the SAME classes
-          used by index.html.
-        -->
         <div
           id="allProductsGrid"
           class="product-grid"
@@ -450,10 +445,10 @@
        EXISTING SITE SCRIPTS
   ======================================================== -->
 
-<script src="products.js"></script>
-<script src="components.js"></script>
-<script src="cart.js"></script>
-<script src="script.js"></script>
+  <script src="products.js"></script>
+  <script src="components.js"></script>
+  <script src="cart.js"></script>
+  <script src="script.js"></script>
 
 
   <!-- =======================================================
@@ -467,27 +462,46 @@
         ? window.products
         : [];
 
-      const productDetails = document.getElementById("productDetails");
-      const recommendedSection = document.getElementById("recommendedSection");
-      const recommendedGrid = document.getElementById("recommendedGrid");
+      const productDetails =
+        document.getElementById("productDetails");
 
-      const allProductsGrid = document.getElementById("allProductsGrid");
-      const productsCount = document.getElementById("productsCount");
-      const loadMoreWrapper = document.getElementById("loadMoreWrapper");
-      const loadMoreButton = document.getElementById("loadMoreButton");
-      const noProductsMessage = document.getElementById("noProductsMessage");
+      const recommendedSection =
+        document.getElementById("recommendedSection");
+
+      const recommendedGrid =
+        document.getElementById("recommendedGrid");
+
+      const allProductsGrid =
+        document.getElementById("allProductsGrid");
+
+      const productsCount =
+        document.getElementById("productsCount");
+
+      const loadMoreWrapper =
+        document.getElementById("loadMoreWrapper");
+
+      const loadMoreButton =
+        document.getElementById("loadMoreButton");
+
+      const noProductsMessage =
+        document.getElementById("noProductsMessage");
 
 
       /* =====================================================
          GET CURRENT PRODUCT
       ====================================================== */
 
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = Number(urlParams.get("id"));
+      const urlParams =
+        new URLSearchParams(window.location.search);
 
-      const selectedProduct = products.find(
-        product => Number(product.id) === productId
-      );
+      const productId =
+        Number(urlParams.get("id"));
+
+      const selectedProduct =
+        products.find(
+          product =>
+            Number(product.id) === productId
+        );
 
 
       /* =====================================================
@@ -498,16 +512,22 @@
 
         productDetails.innerHTML = `
           <div class="no-products-message">
+
             <h2>Product Not Found</h2>
+
             <p>
               The product you're looking for could not be found.
             </p>
 
             <br>
 
-            <a href="index.html" class="button primary-button">
+            <a
+              href="index.html"
+              class="button primary-button"
+            >
               Back to Store
             </a>
+
           </div>
         `;
 
@@ -523,11 +543,13 @@
 
       let quantity = 1;
 
-      const productTag = selectedProduct.tag
-        ? `<span class="product-detail-tag">${selectedProduct.tag}</span>`
-        : "";
+      const productTag =
+        selectedProduct.tag
+          ? `<span class="product-detail-tag">${selectedProduct.tag}</span>`
+          : "";
 
-      const rating = selectedProduct.rating || 0;
+      const rating =
+        selectedProduct.rating || 0;
 
       const ratingCount =
         selectedProduct.ratingCount ||
@@ -563,12 +585,15 @@
             </h1>
 
             <div class="product-detail-rating">
+
               ★★★★★
+
               ${
                 ratingCount
                   ? `<span>${ratingCount}</span>`
                   : ""
               }
+
             </div>
 
             <p class="product-detail-description">
@@ -576,7 +601,9 @@
             </p>
 
             <strong class="product-detail-price">
-              KSh ${Number(selectedProduct.price || 0).toLocaleString()}
+              KSh ${Number(
+                selectedProduct.price || 0
+              ).toLocaleString()}
             </strong>
 
 
@@ -625,7 +652,10 @@
               </h3>
 
               <p>
-                ${selectedProduct.description || "More information about this product will be available soon."}
+                ${
+                  selectedProduct.description ||
+                  "More information about this product will be available soon."
+                }
               </p>
 
             </div>
@@ -650,22 +680,34 @@
         document.getElementById("increaseQuantity");
 
 
-      decreaseQuantity.addEventListener("click", function () {
+      decreaseQuantity.addEventListener(
+        "click",
+        function () {
 
-        if (quantity > 1) {
-          quantity--;
-          quantityValue.textContent = quantity;
+          if (quantity > 1) {
+
+            quantity--;
+
+            quantityValue.textContent =
+              quantity;
+
+          }
+
         }
+      );
 
-      });
 
+      increaseQuantity.addEventListener(
+        "click",
+        function () {
 
-      increaseQuantity.addEventListener("click", function () {
+          quantity++;
 
-        quantity++;
-        quantityValue.textContent = quantity;
+          quantityValue.textContent =
+            quantity;
 
-      });
+        }
+      );
 
 
       /* =====================================================
@@ -676,21 +718,24 @@
         document.getElementById("mainAddToCart");
 
 
-      mainAddToCart.addEventListener("click", function () {
+      mainAddToCart.addEventListener(
+        "click",
+        function () {
 
-        if (
-          window.HabiyeCart &&
-          typeof window.HabiyeCart.addToCart === "function"
-        ) {
+          if (
+            window.HabiyeCart &&
+            typeof window.HabiyeCart.addToCart === "function"
+          ) {
 
-          window.HabiyeCart.addToCart(
-            selectedProduct.id,
-            quantity
-          );
+            window.HabiyeCart.addToCart(
+              selectedProduct.id,
+              quantity
+            );
+
+          }
 
         }
-
-      });
+      );
 
 
       /* =====================================================
@@ -698,26 +743,32 @@
          SIMPLE SYSTEM — NO RECOMMENDATION ENGINE
       ====================================================== */
 
-      const otherProducts = products.filter(
-        product =>
-          Number(product.id) !== Number(selectedProduct.id)
-      );
+      const otherProducts =
+        products.filter(
+          product =>
+            Number(product.id) !==
+            Number(selectedProduct.id)
+        );
 
 
-      const sameCategory = otherProducts.filter(
-        product =>
-          product.category &&
-          selectedProduct.category &&
-          product.category === selectedProduct.category
-      );
+      const sameCategory =
+        otherProducts.filter(
+          product =>
+            product.category &&
+            selectedProduct.category &&
+            product.category ===
+            selectedProduct.category
+        );
 
 
-      const differentCategory = otherProducts.filter(
-        product =>
-          !product.category ||
-          !selectedProduct.category ||
-          product.category !== selectedProduct.category
-      );
+      const differentCategory =
+        otherProducts.filter(
+          product =>
+            !product.category ||
+            !selectedProduct.category ||
+            product.category !==
+            selectedProduct.category
+        );
 
 
       const recommendedProducts = [
@@ -728,7 +779,8 @@
 
       if (recommendedProducts.length > 0) {
 
-        recommendedSection.style.display = "block";
+        recommendedSection.style.display =
+          "block";
 
         recommendedGrid.innerHTML =
           recommendedProducts
@@ -739,63 +791,13 @@
 
 
       /* =====================================================
-         RECOMMENDATION BUTTONS
-      ====================================================== */
-
-      recommendedGrid.addEventListener(
-        "click",
-        function (event) {
-
-          const viewButton =
-            event.target.closest("[data-view-product]");
-
-          const cartButton =
-            event.target.closest("[data-recommendation-cart]");
-
-
-          /* VIEW */
-
-          if (viewButton) {
-
-            const id =
-              Number(viewButton.dataset.viewProduct);
-
-            window.location.href =
-              `index2.html?id=${id}`;
-
-            return;
-          }
-
-
-          /* ADD TO CART */
-
-          if (cartButton) {
-
-            const id =
-              Number(cartButton.dataset.recommendationCart);
-
-            if (
-              window.HabiyeCart &&
-              typeof window.HabiyeCart.addToCart === "function"
-            ) {
-
-              window.HabiyeCart.addToCart(id, 1);
-
-            }
-
-          }
-
-        }
-      );
-
-
-      /* =====================================================
          DEVICE-BASED INITIAL PRODUCT COUNT
       ====================================================== */
 
       function getInitialProductCount() {
 
-        const width = window.innerWidth;
+        const width =
+          window.innerWidth;
 
         /*
           Large desktop:
@@ -835,106 +837,147 @@
         This section represents the complete store catalogue.
       */
 
-      const allStoreProducts = createSmartProductOrder(products, selectedProduct);
-
-      function createSmartProductOrder(productList, currentProduct) {
-
-  const remainingProducts = productList.filter(
-    product =>
-      Number(product.id) !== Number(currentProduct?.id)
-  );
-
-  const categories = [
-    ...new Set(
-      remainingProducts
-        .map(product => product.category)
-        .filter(Boolean)
-    )
-  ];
-
-  const productsByCategory = {};
-
-  categories.forEach(category => {
-    productsByCategory[category] =
-      remainingProducts.filter(
-        product => product.category === category
-      );
-  });
-
-
-  /*
-    Shuffle each category independently.
-  */
-  Object.keys(productsByCategory).forEach(category => {
-
-    productsByCategory[category] =
-      shuffleArray(productsByCategory[category]);
-
-  });
-
-
-  /*
-    Take products from different categories
-    one by one instead of taking 30 from one category.
-  */
-  const result = [];
-
-  let productsRemaining = true;
-
-  while (productsRemaining) {
-
-    productsRemaining = false;
-
-    for (const category of categories) {
-
-      if (
-        productsByCategory[category] &&
-        productsByCategory[category].length > 0
-      ) {
-
-        result.push(
-          productsByCategory[category].shift()
+      const allStoreProducts =
+        createSmartProductOrder(
+          products,
+          selectedProduct
         );
 
-        productsRemaining = true;
+
+      function createSmartProductOrder(
+        productList,
+        currentProduct
+      ) {
+
+        const remainingProducts =
+          productList.filter(
+            product =>
+              Number(product.id) !==
+              Number(currentProduct?.id)
+          );
+
+
+        const categories = [
+          ...new Set(
+            remainingProducts
+              .map(product => product.category)
+              .filter(Boolean)
+          )
+        ];
+
+
+        const productsByCategory = {};
+
+
+        categories.forEach(
+          category => {
+
+            productsByCategory[category] =
+              remainingProducts.filter(
+                product =>
+                  product.category ===
+                  category
+              );
+
+          }
+        );
+
+
+        /*
+          Shuffle each category independently.
+        */
+
+        Object.keys(
+          productsByCategory
+        ).forEach(
+          category => {
+
+            productsByCategory[category] =
+              shuffleArray(
+                productsByCategory[category]
+              );
+
+          }
+        );
+
+
+        /*
+          Take products from different categories
+          one by one instead of taking 30 from one category.
+        */
+
+        const result = [];
+
+        let productsRemaining = true;
+
+
+        while (productsRemaining) {
+
+          productsRemaining = false;
+
+
+          for (
+            const category of categories
+          ) {
+
+            if (
+              productsByCategory[category] &&
+              productsByCategory[category].length > 0
+            ) {
+
+              result.push(
+                productsByCategory[category].shift()
+              );
+
+              productsRemaining = true;
+
+            }
+
+          }
+
+        }
+
+
+        return result;
       }
 
-    }
 
-  }
+      /*
+        Fisher-Yates shuffle
+      */
+
+      function shuffleArray(array) {
+
+        const shuffled =
+          [...array];
 
 
-  return result;
-}
+        for (
+          let i = shuffled.length - 1;
+          i > 0;
+          i--
+        ) {
+
+          const j =
+            Math.floor(
+              Math.random() *
+              (i + 1)
+            );
 
 
-/*
-  Fisher-Yates shuffle
-*/
-function shuffleArray(array) {
+          [
+            shuffled[i],
+            shuffled[j]
+          ] = [
+            shuffled[j],
+            shuffled[i]
+          ];
 
-  const shuffled = [...array];
+        }
 
-  for (
-    let i = shuffled.length - 1;
-    i > 0;
-    i--
-  ) {
 
-    const j =
-      Math.floor(Math.random() * (i + 1));
-
-    [
-      shuffled[i],
-      shuffled[j]
-    ] = [
-      shuffled[j],
-      shuffled[i]
-    ];
-  }
-
-  return shuffled;
-}
+        return shuffled;
+      }
 
 
       /* =====================================================
@@ -945,19 +988,24 @@ function shuffleArray(array) {
 
         if (!allStoreProducts.length) {
 
-          allProductsGrid.innerHTML = "";
+          allProductsGrid.innerHTML =
+            "";
 
-          productsCount.textContent = "";
+          productsCount.textContent =
+            "";
 
-          noProductsMessage.style.display = "block";
+          noProductsMessage.style.display =
+            "block";
 
-          loadMoreWrapper.style.display = "none";
+          loadMoreWrapper.style.display =
+            "none";
 
           return;
         }
 
 
-        noProductsMessage.style.display = "none";
+        noProductsMessage.style.display =
+          "none";
 
 
         const visibleProducts =
@@ -982,11 +1030,13 @@ function shuffleArray(array) {
           allStoreProducts.length
         ) {
 
-          loadMoreWrapper.style.display = "flex";
+          loadMoreWrapper.style.display =
+            "flex";
 
         } else {
 
-          loadMoreWrapper.style.display = "none";
+          loadMoreWrapper.style.display =
+            "none";
 
         }
 
@@ -1001,7 +1051,8 @@ function shuffleArray(array) {
         "click",
         function () {
 
-          const width = window.innerWidth;
+          const width =
+            window.innerWidth;
 
           let loadAmount;
 
@@ -1021,7 +1072,8 @@ function shuffleArray(array) {
           }
 
 
-          visibleProductCount += loadAmount;
+          visibleProductCount +=
+            loadAmount;
 
 
           if (
@@ -1043,35 +1095,41 @@ function shuffleArray(array) {
             loaded products instead of jumping to the top.
           */
 
-          setTimeout(function () {
+          setTimeout(
+            function () {
 
-            const cards =
-              allProductsGrid.querySelectorAll(
-                ".product-card"
-              );
+              const cards =
+                allProductsGrid.querySelectorAll(
+                  ".product-card"
+                );
 
-            if (cards.length > 0) {
 
-              const lastCard =
-                cards[
-                  Math.max(
-                    0,
-                    cards.length - loadAmount
-                  )
-                ];
+              if (cards.length > 0) {
 
-              if (lastCard) {
+                const lastCard =
+                  cards[
+                    Math.max(
+                      0,
+                      cards.length -
+                      loadAmount
+                    )
+                  ];
 
-                lastCard.scrollIntoView({
-                  behavior: "smooth",
-                  block: "center"
-                });
+
+                if (lastCard) {
+
+                  lastCard.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                  });
+
+                }
 
               }
 
-            }
-
-          }, 100);
+            },
+            100
+          );
 
         }
       );
@@ -1079,14 +1137,16 @@ function shuffleArray(array) {
 
       /* =====================================================
          PRODUCT CARD
-         SAME CLASSES USED BY index.html
+         SAME CARD USED FOR RECOMMENDATIONS
+         AND ALL PRODUCTS
       ====================================================== */
 
       function renderProductCard(product) {
 
-        const tag = product.tag
-          ? `<span class="product-tag">${product.tag}</span>`
-          : "";
+        const tag =
+          product.tag
+            ? `<span class="product-tag">${product.tag}</span>`
+            : "";
 
 
         const ratingCount =
@@ -1147,7 +1207,9 @@ function shuffleArray(array) {
               <div class="product-card-bottom">
 
                 <strong class="product-price">
-                  KSh ${Number(product.price || 0).toLocaleString()}
+                  KSh ${Number(
+                    product.price || 0
+                  ).toLocaleString()}
                 </strong>
 
 
@@ -1165,7 +1227,7 @@ function shuffleArray(array) {
                   <button
                     type="button"
                     class="button primary-button"
-                    data-product-cart="${product.id}"
+                    data-cart-product="${product.id}"
                   >
                     Add to Cart
                   </button>
@@ -1183,48 +1245,68 @@ function shuffleArray(array) {
 
 
       /* =====================================================
-         ALL PRODUCT BUTTONS
+         ALL PRODUCT + RECOMMENDATION BUTTONS
+         ONE UNIFIED HANDLER
       ====================================================== */
 
-      allProductsGrid.addEventListener(
+      document.addEventListener(
         "click",
         function (event) {
 
           const viewButton =
-            event.target.closest("[data-view-product]");
+            event.target.closest(
+              "[data-view-product]"
+            );
+
 
           const cartButton =
-            event.target.closest("[data-product-cart]");
+            event.target.closest(
+              "[data-cart-product]"
+            );
 
 
-          /* VIEW */
+          /* =================================================
+             VIEW PRODUCT
+          ================================================= */
 
           if (viewButton) {
 
             const id =
-              Number(viewButton.dataset.viewProduct);
+              Number(
+                viewButton.dataset.viewProduct
+              );
+
 
             window.location.href =
               `index2.html?id=${id}`;
+
 
             return;
           }
 
 
-          /* ADD TO CART */
+          /* =================================================
+             ADD TO CART
+          ================================================= */
 
           if (cartButton) {
 
             const id =
-              Number(cartButton.dataset.productCart);
+              Number(
+                cartButton.dataset.cartProduct
+              );
 
 
             if (
               window.HabiyeCart &&
-              typeof window.HabiyeCart.addToCart === "function"
+              typeof window.HabiyeCart.addToCart ===
+                "function"
             ) {
 
-              window.HabiyeCart.addToCart(id, 1);
+              window.HabiyeCart.addToCart(
+                id,
+                1
+              );
 
             }
 
