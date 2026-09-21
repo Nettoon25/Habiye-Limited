@@ -100,6 +100,17 @@ a {
 
 }
 
+/* =========================
+   FIXED SITE HEADER
+========================= */
+
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+}
 
 /* =========================
    TOP BAR
@@ -132,17 +143,7 @@ a {
 
 
 
-/* =========================
-   NAVBAR
-========================= */
-
 .navbar {
-
-  position: sticky;
-
-  top: 0;
-
-  z-index: 1000;
 
   background: rgba(255,255,255,0.96);
 
@@ -151,7 +152,6 @@ a {
   border-bottom: 1px solid var(--border);
 
 }
-
 
 .nav-container {
 
@@ -165,6 +165,21 @@ a {
 
   gap: 30px;
 
+}
+
+body {
+  padding-top: 116px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: var(--text);
+
+  background: var(--light);
+
+  line-height: 1.6;
 }
 
 
