@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="top-bar">
         <div class="container top-bar-content">
           <span>📍 Nairobi, Kenya</span>
-          <span>📞 +254 7946-00610</span>
           <span>📞 +254 0722222615</span>
           <span>🚚 Delivery available</span>
         </div>
@@ -172,11 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>Contact</h3>
 
             <ul>
-
-              <li>
-                +254 7946-00610
-              </li>
-
               <li>
                 +254 0722222615
               </li>
